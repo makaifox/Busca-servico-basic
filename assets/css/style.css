@@ -1,13 +1,13 @@
 body {
   background-color: #E5E5E5;
-  font-family: Poppins;
+  font: Poppins 600 normal;
 }
 
-.banner {
+.banner, .logo {
   height: 50vh;
   padding: 1.6rem;
 }
-.banner h2 {
+.banner h2, .logo h2 {
   color: #fff;
 }
 
