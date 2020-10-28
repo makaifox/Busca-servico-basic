@@ -1,15 +1,30 @@
 $layout-mobile: 320px;
-$layout-desktop: 1200px;
+$layout-desktop: 1024px;
 $white: white;
 
 .banner {
-    height: 60vh;
+    height: 50vh;
+    padding: 1.6rem;
+}
+.buttons {
+    height: 50vh;
+    padding: 1.6rem;
+}
+
+.main_button {
+    padding: 1.8rem;
+    width: 7rem;
 }
 
 .user{
     color: $white;
 
 }
+
+.-padding {
+    padding: 0;
+}
+
 
 #login   { 
     .container #login-row #login-column #login-box {
