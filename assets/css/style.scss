@@ -2,9 +2,19 @@ $layout-mobile: 320px;
 $layout-desktop: 1024px;
 $white: white;
 
+body {
+    background-color: #E5E5E5;
+    font-family: Poppins;
+}
+
+
+
 .banner {
     height: 50vh;
     padding: 1.6rem;
+    h2 {
+        color:#fff;
+    }
 }
 .buttons {
     height: 50vh;
@@ -14,6 +24,16 @@ $white: white;
 .main_button {
     padding: 1.8rem;
     width: 7rem;
+}
+
+.btn-prof {
+    background-color: #8257E5;
+    color: #fff;
+}
+
+.btn-serv {
+    background-color: #04D361;
+    color: #fff;
 }
 
 .user{

@@ -1,6 +1,14 @@
+body {
+  background-color: #E5E5E5;
+  font-family: Poppins;
+}
+
 .banner {
   height: 50vh;
   padding: 1.6rem;
+}
+.banner h2 {
+  color: #fff;
 }
 
 .buttons {
@@ -11,6 +19,16 @@
 .main_button {
   padding: 1.8rem;
   width: 7rem;
+}
+
+.btn-prof {
+  background-color: #8257E5;
+  color: #fff;
+}
+
+.btn-serv {
+  background-color: #04D361;
+  color: #fff;
 }
 
 .user {
