@@ -1,19 +1,63 @@
 body {
   background-color: #E5E5E5;
   font: Poppins 600 normal;
+  color: #9C98A6;
+}
+
+#remember-me {
+  color: #04D361;
+}
+
+.bg-dark {
+  background-color: #000000 !important;
+}
+
+.vh {
+  height: 50vh !important;
+}
+
+.comum_txt {
+  color: #9C98A6;
 }
 
 .banner, .logo {
   height: 50vh;
-  padding: 1.6rem;
 }
 .banner h2, .logo h2 {
   color: #fff;
+  font-size: 1.2rem;
+}
+
+.banner {
+  padding-top: 1.6rem;
+}
+
+.logo {
+  padding-top: 6.6rem;
+}
+
+.h-80 {
+  margin: 3rem 0 0 0;
+}
+
+.fa-user-circle {
+  padding: 0.2rem 0.4rem;
+}
+
+.user {
+  padding-top: 0.4rem;
+  color: #b6c1c9 !important;
 }
 
 .buttons {
   height: 50vh;
   padding: 1.6rem;
+}
+
+.submit {
+  background-color: #04D361 !important;
+  color: white;
+  height: 4rem;
 }
 
 .main_button {
@@ -39,31 +83,68 @@ body {
   padding: 0;
 }
 
+.text-info {
+  color: #32264D !important;
+}
+
 #login .container #login-row #login-column #login-box {
   margin-top: 120px;
   max-width: 600px;
   height: 320px;
-  border: 1px solid #9C9C9C;
-  background-color: #EAEAEA;
 }
 #login .container #login-row #login-column #login-box #login-form {
   padding: 20px;
 }
-#login .container #login-row #login-column #login-box #login-form #register-link {
-  margin-top: -85px;
+#login .container #login-row #login-column #login-box #login-form h3 {
+  font-size: 2.8rem !important;
 }
 
-@media screen and (min-width: 1024px) {
+.box {
+  max-width: 28rem !important;
+}
+
+.cadastro {
+  margin-top: -5rem !important;
+}
+
+@media screen and (max-width: 320px) {
+  #cadast_box {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+    grid-template-areas: "logo" "buttons";
+  }
+
+  #form_logo {
+    grid-area: logo;
+  }
+
+  #form_user {
+    grid-area: buttons;
+  }
+
+  #login .container #login-row #login-column #login-box #login-form h3 {
+    font-size: 2.1rem !important;
+  }
+}
+@media screen and (min-width: 800px) {
   .logo {
     position: absolute;
     width: 439px;
     height: 133px;
-    left: 47px;
-    top: 294px;
+    top: 200px;
+    padding-top: 0.1rem;
+  }
+  .logo h2 {
+    font-size: 1.4rem;
   }
 
-  .vh-100 {
-    height: 100vh;
+  .h-80 {
+    margin: 7rem 0 0 0;
+  }
+
+  .vh {
+    height: 100vh !important;
   }
 
   .banner {
@@ -77,6 +158,15 @@ body {
   .main_button {
     padding: 3rem;
     width: 18rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .logo {
+    top: 248px;
+    left: 47px;
+  }
+  .logo h2 {
+    font-size: 1.8rem;
   }
 }
 
