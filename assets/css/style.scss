@@ -21,6 +21,8 @@ $layout-desktop: 800px;
 $layout-desktop-large: 1280px;
 $inative-icon: #b6c1c9;
 $white: white;
+@import 'root';
+
 
 body {
     background-color: #E5E5E5;
@@ -154,5 +156,8 @@ body {
 
 
 @import 'styles-mobile';
+@import 'styles-mobile-min700';
 @import 'styles-desktop';
+@import 'styles-desktop-min1024';
 @import 'styles-desktop-large';
+@import 'style-proffisionais';
