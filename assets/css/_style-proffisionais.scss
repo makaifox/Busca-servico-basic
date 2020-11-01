@@ -84,7 +84,9 @@ body, input, button, textarea {
     height:40vh;
 }
 
-
+#input-container .cadastro-desktop {
+    display: none !important;
+}
 #page-landing .login {
     
     align-items: center;
