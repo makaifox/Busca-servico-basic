@@ -49,6 +49,8 @@ require './config.php';
     
     $verifica = mysqli_query($con, "SELECT * FROM usuarios WHERE usuario =
     '$usuario' AND senha = '$senha'") or die("erro ao selecionar");
+
+
       if (mysqli_num_rows($verifica)<=0){
 
         unset ($_SESSION['usuario']);
@@ -62,6 +64,11 @@ require './config.php';
 
         $_SESSION['usuario'] = $usuario;
         $_SESSION['senha'] = $senha;
+
+        
+        
+        
+        
 
         setcookie("usuario",$usuario);
         header("Location:home.php");

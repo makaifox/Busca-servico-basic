@@ -14,6 +14,12 @@ if((!isset ($_SESSION['usuario']) == true) and (!isset ($_SESSION['senha']) == t
   }
 
 $logado = $_SESSION['usuario'];
+$nome = $_SESSION['nome'];
+
+echo $nome;
+
+
+
 ?>
 
 <!DOCTYPE html>

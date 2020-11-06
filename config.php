@@ -31,10 +31,10 @@ $con = mysqli_connect("162.241.2.224", "justvi84_justvirtuaserv", "justvirtua@A2
 
 mysqli_select_db ( $con, $dbname );
 // $conn = mysqli_connect($hostname,$usuario,$senha); mysqli_select_db($conn,$banco) or die( 'Não foi possível conectar ao banco MySQL');
-if (!$con) {echo 'Não foi possível conectar ao banco MySQL.
-'; exit;}
-else {echo 'Parabéns!! A conexão ao banco de dados ocorreu normalmente!.
-';}
+// if (!$con) {echo 'Não foi possível conectar ao banco MySQL.
+// '; exit;}
+// else {echo 'Parabéns!! A conexão ao banco de dados ocorreu normalmente!.
+// ';}
 // mysqli_close( $con); 
 
 ?>
