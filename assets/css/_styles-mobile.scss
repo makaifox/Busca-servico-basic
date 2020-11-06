@@ -1,0 +1,47 @@
+@media screen and (max-width: $layout-mobile) {
+    
+    #cadast_box {
+        display: grid;
+            grid-template-rows:  1fr  1fr;
+            grid-template-columns: 1fr ;
+            grid-template-areas: 
+            "logo"
+            "buttons";  
+    }
+
+    #form_logo {
+        grid-area: logo;
+        }
+
+
+    #form_user {
+        grid-area: buttons;
+        }
+
+        #login   { 
+            .container #login-row #login-column #login-box {
+        
+                #login-form {
+                    
+        
+                    h3 {
+                        font-size: 2.1rem !important;
+                    }
+        
+            
+                }
+        
+            }
+        }
+
+        .min-up {
+            top:-7rem
+        }
+    
+
+        .esqueci-box {
+            top:-3rem;
+        }
+
+
+}

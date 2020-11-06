@@ -1,0 +1,510 @@
+@media screen and (min-width: 1024px){
+    #page-landing-content{
+        max-width: 100vw;
+    }
+
+    #cadastro-desktop{
+        display: inline;
+    }
+    
+    #page-esqueci{
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color:$color-text-in-primary;
+        background:--input-background;
+        display: grid;
+            grid-template-rows:  1fr  1fr;
+            grid-template-columns: 1fr ;
+            grid-template-areas: 
+            "buttons logo";
+
+
+             .input-block+.input-block {
+                margin-top:0;
+            }
+
+
+            #page-esqueci-buttons {
+        
+                justify-content: center;
+                align-items: center;
+        
+                grid-area: buttons;
+
+                width:45vw;
+                height:100vh;
+                display: grid;
+                    grid-template-rows:  1fr 1fr 1fr;
+                    grid-template-columns: 1fr ;
+                    grid-template-areas: 
+                    "header-form"
+                    "input-container"
+                    ;
+            }
+
+            #page-esqueci .logo-container{
+                grid-area: logo;
+                align-self: center;
+                text-align: left;
+                margin: 0;
+            }
+
+            #page-esqueci-content {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                grid-area: logo;
+                width:55vw;
+                height:100vh;
+                background:$color-primary;
+            }
+    }
+    
+   
+    
+    
+
+    #header-form-esqueci{
+
+        margin: 20rem 0 0 10rem;
+        
+    }
+
+    #input-container-esqueci {
+        margin-top: 1rem;
+    }
+        
+    
+    
+   
+
+
+    #page-esqueci .esqueci-mobile{
+    display: none;
+}
+
+#page-esqueci .esqueci-desktop {
+    text-decoration: none;
+}
+
+#page-esqueci .esqueci-desktop p {
+    text-decoration: none;
+    color:$color-text-base;
+    font-size: 1.8rem
+
+}
+
+
+
+#page-esqueci .logo-container img {
+
+        max-width: 50rem;
+    }
+    #page-esqueci .input-container {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width:60rem;
+    
+    
+}
+#page-esqueci .input-block input, .enviar{
+    height:5.2rem;
+    width: 40rem;
+}
+
+    #page-esqueci-content{
+        max-width: 100vw;
+    }
+
+    #page-esqueci .logo-container img {
+        height: 10rem;
+    }
+
+    #page-esqueci .text-footer-form {
+        font-size: 1.6rem;
+        margin:1rem 2.3rem ;
+
+    }
+
+   
+
+    #page-esqueci .logo-container h2{
+        text-align: initial;
+        font-size: 2.6rem;
+    }
+
+    #page-esqueci .logo-container img {
+        height: 100%;
+    }
+
+
+
+    #page-esqueci .buttons-container{
+        grid-area: buttons;
+        justify-content: flex-start;
+    }
+
+    #page-esqueci .buttons-container a{
+        font-size: 2.0rem;
+    }
+    #page-esqueci .bem-vindo{
+        grid-area: bemvindo;
+        justify-self: center;
+    }
+    #page-esqueci .total-connections{
+        grid-area: total;
+        justify-self: left;
+    }
+
+    #logo-container img {
+        height: 10rem;
+        width: -moz-fit-content;
+        width: fit-content;
+    }
+    #page-landing .login p {
+        margin-left: -10px;
+        color: #525252;
+    }
+    
+
+    #page-landing .login-button {
+        width: 4rem;
+        height: 4rem;
+        border-radius: 0.6rem;
+        
+    }
+    
+    #page-landing .login-button img {
+        width: 2rem;
+        height: 2rem;
+        margin: 25%;
+        
+        
+    }
+
+    #page-landing .user-pic {
+        width: 4rem;
+        height: 4rem;
+        border-radius: 0.6rem;
+        
+        
+    }
+
+    #page-landing-buttons{
+        max-width: 100vw;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-areas: 
+
+        "bemvindo total  buttons buttons ";
+    }
+
+
+
+    #page-landing .login-area{
+    width:100rem;
+    }
+
+    #logo-container{ 
+
+        grid-area: logo;
+        align-self: center;
+        text-align: left;
+        margin: 0;
+    }
+
+    #logo-container h2{
+        text-align: initial;
+        font-size: 2.6rem;
+    }
+
+    #logo-container img {
+        
+        max-width: 50rem;
+    
+    }
+
+
+    #page-landing .buttons-container{
+        grid-area: buttons;
+        justify-content: flex-start;
+    }
+
+    #page-landing .buttons-container a{
+        font-size: 2.0rem;
+    }
+    #page-landing .bem-vindo{
+        grid-area: bemvindo;
+        justify-self: center;
+    }
+    #page-landing .total-connections{
+        grid-area: total;
+        justify-self: left;
+    }
+
+
+    #page-login{
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color:$color-text-in-primary;
+        background:--input-background;
+        display: grid;
+            grid-template-rows:  1fr  1fr;
+            grid-template-columns: 1fr ;
+            grid-template-areas: 
+            "logo buttons";
+    }
+    
+    #page-login-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        grid-area: logo;
+        width:55vw;
+        height:100vh;
+        background:$color-primary;
+    }
+    
+
+    
+    #page-login-buttons {
+        
+        justify-content: center;
+        align-items: center;
+        margin:auto;
+        grid-area: buttons;
+        width:45vw;
+        height:100vh;
+        display: grid;
+            grid-template-rows:  1fr 1fr 1fr;
+            grid-template-columns: 1fr ;
+            grid-template-areas: 
+            "header-form"
+            "input-container"
+            ;
+    }
+
+    #page-login .login-text {
+        font-size: 5.0rem;
+        margin-top: 8rem;
+        margin-left:8rem;
+
+    }
+
+    #page-login .cadastro-mobile{
+    display: none;
+}
+
+#page-login .cadastro-desktop {
+    text-decoration: none;
+}
+
+#page-login .cadastro-desktop p {
+    text-decoration: none;
+    color:$color-text-base;
+    font-size: 1.8rem
+
+}
+
+
+#page-login .input-container {
+    display:inline;
+    justify-content: center;
+    align-items: center;
+    width:80%;
+}
+#page-login-buttons .input-block input, .enviar{
+    margin-top: 2rem;
+    height:7rem;
+    width: 90%;
+}
+
+    #page-login-content{
+        max-width: 100vw;
+    }
+
+
+
+    #page-login .text-footer-form {
+        font-size: 1.6rem;
+        margin:1rem 2.3rem ;
+
+    }
+
+    #page-login .logo-container{
+        grid-area: logo;
+        align-self: center;
+        text-align: left;
+        margin: 0;
+    }
+
+    #page-login .logo-container h2{
+        text-align: initial;
+        font-size: 2.6rem;
+    }
+
+    #page-login .logo-container img {
+        height: 100%;
+        max-width: 50rem;
+    
+    }
+
+
+
+    #page-login .buttons-container{
+        grid-area: buttons;
+        justify-content: flex-start;
+    }
+
+    #page-login .buttons-container a{
+        font-size: 2.0rem;
+    }
+    #page-login .bem-vindo{
+        grid-area: bemvindo;
+        justify-self: center;
+    }
+    #page-login .total-connections{
+        grid-area: total;
+        justify-self: left;
+    }
+
+
+    
+    #page-cadastro{
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color:$color-text-in-primary;
+        background:--input-background;
+        display: grid;
+            grid-template-rows:  1fr  1fr;
+            grid-template-columns: 1fr ;
+            grid-template-areas: 
+            "buttons logo";
+    }
+    
+    #page-cadastro-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        grid-area: logo;
+        width:55vw;
+        height:100vh;
+        background:$color-primary;
+    }
+    
+
+    
+    #page-cadastro-buttons {
+        
+        justify-content: center;
+        align-items: center;
+
+        grid-area: buttons;
+        width:45vw;
+        height:100vh;
+        display: grid;
+            grid-template-rows:  1fr 1fr 1fr;
+            grid-template-columns: 1fr ;
+            grid-template-areas: 
+            "header-form"
+            "input-container"
+            ;
+    }
+    
+    #page-cadastro  .input-block+.input-block {
+        margin-top:0;
+    }
+
+
+    #page-cadastro  .cadastro-mobile{
+    display: none;
+}
+
+#page-cadastro  .cadastro-desktop {
+    text-decoration: none;
+}
+
+#page-cadastro  .cadastro-desktop p {
+    text-decoration: none;
+    color:$color-text-base;
+    font-size: 1.8rem
+
+}
+
+
+
+        
+    #page-cadastro  .input-container {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width:60rem;
+    
+    
+}
+#page-cadastro  .input-block input, .enviar{
+    height:5.2rem;
+    width: 40rem;
+}
+
+    #page-cadastro-content{
+        max-width: 100vw;
+    }
+
+
+
+    #page-cadastro .text-footer-form {
+        font-size: 1.6rem;
+        margin:1rem 2.3rem ;
+
+    }
+
+    #page-cadastro .logo-container{
+        grid-area: logo;
+        align-self: center;
+        text-align: left;
+        margin: 0;
+    }
+
+    #page-cadastro  .logo-container h2{
+        text-align: initial;
+        font-size: 2.6rem;
+    }
+
+    #page-login .logo-container img, #page-esqueci .logo-container img ,
+    #page-cadastro .logo-container img ,#page-landing #logo-container img {
+        height: 6.5rem;
+        max-width: 50rem;
+    
+    }
+
+
+
+    #page-cadastro .buttons-container{
+        grid-area: buttons;
+        justify-content: flex-start;
+    }
+
+    #page-cadastro .buttons-container a{
+        font-size: 2.0rem;
+    }
+    #page-cadastro .bem-vindo{
+        grid-area: bemvindo;
+        justify-self: center;
+    }
+    .total-connections{
+        grid-area: total;
+        justify-self: left;
+    }
+}

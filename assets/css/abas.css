@@ -1,0 +1,62 @@
+/*--------------------------------cor e fonte padrão-------------------------------- */ 
+
+body {
+    color: #333;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+/*--------------------------------cor das Abas-------------------------------- */ 
+.nav-tabs .nav-link.active {
+    color: #ffffff;
+    background-color: #3e276a;
+    border-color: #250e51;
+}
+
+.nav-link {
+    color: #ffffff;
+    background-color:#bfa160;
+    border-color: #ac8e4d;
+}
+.nav-link:hover {
+    color: #ffffff;
+}
+/*--------------------------------  LEGENDA GRAFICO DEMANDAS ANUAL -------------------------------- */ 
+    .legDemanda {
+        color: '#333';
+        font-size: small;
+        text-align: center;
+        
+    }
+/*-------------------------------- logos  -------------------------------- */ 
+
+.redecom {
+    color: #ffffff; 
+    font-size: 60px; 
+    text-align: center;
+}
+
+.req {
+    color:#ffffff;
+    font-size: 11.5px;
+    text-align: center;
+
+}
+
+/*--------------------------------wallpaper paralax-------------------------------- */ 
+
+.parallax {
+    /* imagem */
+    background-image: url("../cidade-de-mesquita-foto-drone-2018-fundo-roxo.jpg");
+  
+    /* altura */
+    height: 300px;
+  
+    /* efeito de paralax */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

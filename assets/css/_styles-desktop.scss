@@ -1,0 +1,43 @@
+@media screen and (min-width: $layout-desktop) {
+    
+
+    .logo {
+        position: absolute;
+        width: 439px;
+        height: 133px;
+        top: 200px;
+        padding-top: 0.1rem;
+
+        h2 {
+            font-size: 1.4rem;
+        }
+    }
+
+    .h-80{
+        margin: 7rem 0 0 0;
+    
+    }
+
+
+    .vh {
+        height:100vh !important;
+    }
+
+    .banner {
+        height: 70vh;
+        
+    }
+    .buttons {
+        height: 30vh;
+        
+    }
+
+    .main_button {
+        padding: 3rem;
+        width: 18rem;
+    }
+
+
+   
+
+}
