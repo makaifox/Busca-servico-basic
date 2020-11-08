@@ -48,8 +48,9 @@ require './config.php';
 
     
     $verifica = mysqli_query($con, "SELECT * FROM usuarios WHERE usuario =
-    '$usuario' AND senha = '$senha'") or die("erro ao selecionar");
-
+    '$usuario' AND senha = '$senha'") or die("erro ao verificar o usuario");
+    
+    $bd = mysqli_fetch_assoc($verifica);
 
       if (mysqli_num_rows($verifica)<=0){
 
@@ -64,6 +65,11 @@ require './config.php';
 
         $_SESSION['usuario'] = $usuario;
         $_SESSION['senha'] = $senha;
+        $_SESSION["nome"]  = $bd["nome"];
+        $_SESSION["sobrenome"]  = $bd["sobrenome"];
+        $_SESSION["email"]  = $bd["email"];
+        $_SESSION["cpfcnpj"]  = $bd["cpfcnpj"];
+        $_SESSION["cep"]  = $bd["cep"];
 
         
         

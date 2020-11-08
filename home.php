@@ -14,7 +14,7 @@ if((!isset ($_SESSION['usuario']) == true) and (!isset ($_SESSION['senha']) == t
   }
 
 $logado = $_SESSION['usuario'];
-
+$nome = $_SESSION["nome"];
 
 
 ?>
@@ -38,12 +38,20 @@ $logado = $_SESSION['usuario'];
                   <div class="login-area">
                       <a class="login" href="/index.php">
                         <img src="assets/img/icons/user.svg" class="user-pic" alt="foto">
-                        <p>Faça login</p>
+                        <p> Olá, <?php echo $nome ?></p>
                     </a>
                     <form  method="post">
                     <button type="submit" name="exit" class="login-button">
 
                     <img src="assets/img/icons/power.svg" alt="sair">
+                        <?php
+                            if(isset($_POST['exit'])){
+                                session_unset();
+                                session_destroy();
+                                header("location: /index.php"); 
+                                
+                            }
+                        ?>
                     </button>
                     </form>
                 </div>
@@ -59,7 +67,7 @@ $logado = $_SESSION['usuario'];
                 <a class="study" href="/profissionais.php">Procurar profissionais</a>
                 <a class="give-classes" href="/oferecer.php">Oferecer serviços</a>
             </div>
-            <span class="total-connections">Total de 5 conexões já realizadas</span>
+        <!-- <span class="total-connections">Total de 5 conexões já realizadas</span> -->
         </div>
     </div>
 </div>
@@ -68,9 +76,3 @@ $logado = $_SESSION['usuario'];
 </html>
 
 
-<?php
-    if(isset($_POST['exit'])){
-        session_destroy();
-        header("location: /index.php"); 
-    }
-?>

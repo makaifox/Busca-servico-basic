@@ -14,7 +14,7 @@ if((!isset ($_SESSION['usuario']) == true) and (!isset ($_SESSION['senha']) == t
   }
 
 $logado = $_SESSION['usuario'];
-
+$nome = $_SESSION["nome"];
 
 
 ?>
@@ -45,6 +45,7 @@ $logado = $_SESSION['usuario'];
             </div>
             <div class="header-content">
                 <strong>Que incrível que você quer oferecer seus serviços.</strong>
+                
                 <p>O primeiro passo é preencher esse formulário de inscrição</p>
             </div>
         </header>
@@ -106,7 +107,7 @@ $logado = $_SESSION['usuario'];
                 <div class="schedule-item" id="schedule-item">
                     <section class="select-block" id="schedule-day-item">
                         <label for="week_day">Dia da semana</label>
-                        <select id="week_day" name="week_day[]">
+                        <select id="week_day" name="week_day">
                             <option value="" disabled="" hidden="">Selecione uma opção</option>
                             <option value="Domingo">Domingo</option>
                             <option value="Segunda">Segunda-feira</option>
@@ -119,11 +120,11 @@ $logado = $_SESSION['usuario'];
                     </section>
                     <div class="input-block">
                         <label for="from">Das</label>
-                        <input type="time" id="from" name="fromof[]">
+                        <input type="time" id="from" name="fromof">
                     </div>
                     <div class="input-block">
                         <label for="to">Até</label>
-                        <input type="time" id="to" name="toof[]">
+                        <input type="time" id="to" name="toof">
                     </div>
                 </div>
         </div>
@@ -135,7 +136,7 @@ $logado = $_SESSION['usuario'];
                 <section  id="schedulePaySession">
                     <div class="select-block">
                         <label for="pagamento">Meio de pagamento</label>
-                        <select id="pagamento" name="pagamento[]">
+                        <select id="pagamento" name="pagamento">
                             <option value="" disabled="" hidden="">Selecione uma opção</option>
                             <option value="Paypal">Paypal</option>
                             <option value="PagSeguro">PagSeguro</option>
@@ -146,7 +147,7 @@ $logado = $_SESSION['usuario'];
                         
                     <div class="input-block">
                         <label for="id">Nome / ID de usuário do serviço</label>
-                        <input type="text" id="idUser" name="idUser[]">
+                        <input type="text" id="idUser" name="idUser">
                     </div>
                 </section>
             </div>
