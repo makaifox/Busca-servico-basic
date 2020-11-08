@@ -507,4 +507,13 @@
         grid-area: total;
         justify-self: left;
     }
+
+    .uploadfotos::before {
+        margin-top: 6rem;
+        width: 40rem;
+      }
+    
+      .uploadfotosServico::before{
+        width: 30rem;
+    }
 }

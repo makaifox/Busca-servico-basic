@@ -19,8 +19,8 @@ $(document).ready(function(){
                 $('#resposta').html('Erro ao enviar requisição!!!');
             },
             dataType: 'json',
-            url: 'enviar_arquivo.php',
+            url: 'cadastrar_action.php',
             resetForm: true
-        }).submit();
+        });
     })
 })

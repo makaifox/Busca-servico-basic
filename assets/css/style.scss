@@ -176,6 +176,50 @@ body {
     display: none;
 }
 
+
+.uploadfotos {
+    color: transparent;
+  }
+  .uploadfotos::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+  .uploadfotos::before {
+    content: 'Envie sua foto';
+    height: 4rem;
+    background: #04D361;
+    color: #FFFFFF;
+    border: 0;
+    border-radius: 0.8rem;
+    cursor: pointer;
+    font: 700 1.6rem Archivo;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: background-color 0.2s;
+    margin-top: 4.5rem;
+    width: 26rem;
+  }
+
+  .uploadfotosServico::before{
+      width: 25rem;
+  }
+
+  .uploadfotos:hover::before {
+    border-color: white;
+  }
+  .uploadfotos:active {
+    outline: 0;
+  }
+  .uploadfotos:active::before {
+    background: $inative-icon; 
+  }
+
+  #visualizar{
+    padding-left: 2rem;
+}
+  
+
 @import 'style-proffisionais';
 @import 'styles-mobile';
 @import 'styles-mobile-min700';
