@@ -220,6 +220,32 @@ body {
 }
   
 
+.card-date {
+    width: 100%;
+    border-radius: 1.5rem;
+    height: 100%;
+    
+}
+
+.row-cards {
+    margin-left: 1rem;
+    margin-right: 1rem;
+} 
+
+.col-card {
+    padding: 0 !important;
+    max-width: 8rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+}
+
+.card-body .col {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    min-height: 3.5rem;
+}
+
 @import 'style-proffisionais';
 @import 'styles-mobile';
 @import 'styles-mobile-min700';

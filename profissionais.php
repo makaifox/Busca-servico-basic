@@ -46,10 +46,10 @@ require './buscar_action.php';
                     <strong>Estes são os profissionais disponíveis.</strong>
                     <form id="search-teachers" name="frmBusca" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>?a=buscar" >
                         <div class="select-block">
-                            <label for="servico">Serviço</label>
+                            <label for="servico">Qual o Serviço?</label>
 
                             <select id="servico" name="servico">
-                                <option value="" disabled="" hidden="">Selecione uma opção</option>
+                                <option value="" >Selecione uma opção</option>
 
                                 <option value="Advogado">Advogado</option>
                                 <option value="Artesão">Artesão</option>
@@ -72,7 +72,7 @@ require './buscar_action.php';
                                 
                             </select>
                         </div>
-                        <div class="select-block">
+                        <!-- <div class="select-block">
                             <label for="week_day">Dia da semana</label>
                             <select id="week_day" name="week_day">
                                 <option value="" disabled="" hidden="">Selecione uma opção</option>
@@ -88,7 +88,7 @@ require './buscar_action.php';
                         <div class="input-block">
                             <label for="time">Horário</label>
                             <input type="time" id="time" value=" " name="fromof">
-                        </div>
+                        </div> -->
                         <button type="submit"> Buscar</button>
                     </form>
                 </div>
@@ -104,10 +104,9 @@ $a = $_GET['a'];
 if ($a == "buscar") {
     // Pegamos a palavra
     $servico = trim($_POST['servico']);
-    $week_day = trim($_POST['week_day']);
-    $time = trim($_POST['fromof']);
+
     // Verificamos no banco de dados produtos equivalente a palavra digitada
-    $sql = mysqli_query($con,"SELECT * FROM servicos WHERE servico LIKE '%".$servico."%' ORDER BY nome");
+    $sql = mysqli_query($con,"SELECT * FROM servicos WHERE servico LIKE '%".$servico."%'  ORDER BY nome");
     // Descobrimos o total de registros encontrados
     $numRegistros = mysqli_num_rows($sql);
     // Se houver pelo menos um registro, exibe-o
@@ -119,19 +118,139 @@ if ($a == "buscar") {
             
                 <article class="teacher-item">
                     <header>
-                        <img src="uploads/<?=$prestador['foto']?>" alt="<?=$prestador['nome']?>">
+                        <img src="uploads/<?php echo $prestador->foto; ?>" alt="<?php echo $prestador->nome; ?>">
                         <div>
-                            <strong><?=$prestador['nome']?> <?=$prestador['sobrenome']?></strong>
-                            <span><?=$prestador['servico']?></span>
+                            <strong><?php echo $prestador->nome; ?> <?php echo $prestador->sobrenome; ?></strong>
+                            <span><?php echo $prestador->servico; ?></span>
                         </div>
                     </header>
-                    <p>Web Designer e Tecnico em T.I. ,Nerdzão desde pequeno, curto mto games, Quadrinhos, animes,livros de ficção cientifica ouvir Hard Rock e Power metal</p>
+                    <div class="row row-cards d-flex justify-content-center">
+                        <div class="col-2 col-card">
+                            <div class="card card-date" >
+                            
+                                <div class="card-body">
+                                    <div class="col">
+                                    <h5 class="card-title">Dia</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted"><?php echo $prestador->week_day; ?></h6>
+                                    </div>
+                                    <div class="col">
+                                    <h5 class="card-title">Horário</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted"><?php echo $prestador->fromof; ?>h - <?php echo $prestador->toof; ?></h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-2 col-card">
+                            <div class="card card-date" >
+                            
+                                <div class="card-body">
+                                    <div class="col">
+                                    <h5 class="card-title">Dia</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted"><?php echo $prestador->week_day1; ?></h6>
+                                    </div>
+                                    <div class="col">
+                                    <h5 class="card-title">Horário</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted"><?php echo $prestador->fromof1; ?>h - <?php echo $prestador->toof1; ?></h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-2 col-card">
+                            <div class="card card-date" >
+                            
+                                <div class="card-body">
+                                    <div class="col">
+                                    <h5 class="card-title">Dia</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted"><?php echo $prestador->week_day2; ?></h6>
+                                    </div>
+                                    <div class="col">
+                                    <h5 class="card-title">Horário</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted"><?php echo $prestador->fromof2; ?>h - <?php echo $prestador->toof2; ?></h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-2 col-card">
+                            <div class="card card-date" >
+                            
+                                <div class="card-body">
+                                    <div class="col">
+                                    <h5 class="card-title">Dia</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted"><?php echo $prestador->week_day3; ?></h6>
+                                    </div>
+                                    <div class="col">
+                                    <h5 class="card-title">Horário</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted"><?php echo $prestador->fromof3; ?>h - <?php echo $prestador->toof3; ?></h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-2 col-card">
+                            <div class="card card-date" >
+
+                                <div class="card-body">
+                                    <div class="col">
+                                    <h5 class="card-title">Dia</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted"><?php echo $prestador->week_day4; ?></h6>
+                                    </div>
+                                    <div class="col">
+                                    <h5 class="card-title">Horário</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted"><?php echo $prestador->fromof4; ?>h - <?php echo $prestador->toof4; ?></h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-2 col-card">
+                            <div class="card card-date"   >
+                                <div class="card-body">
+                                    <div class="col">
+                                    <h5 class="card-title">Dia</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted"><?php echo $prestador->week_day5; ?></h6>
+                                    </div>
+                                    <div class="col">
+                                    <h5 class="card-title">Horário</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted"><?php echo $prestador->fromof5; ?>h - <?php echo $prestador->toof5; ?></h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-2 col-card">
+                            <div class="card card-date" >
+                                <div class="card-body">
+                                    <div class="col">
+                                    <h5 class="card-title">Dia</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted"><?php echo $prestador->week_day6; ?></h6>
+                                    </div>
+                                    <div class="col">
+                                    <h5 class="card-title">Horário</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted"><?php echo $prestador->fromof6; ?>h - <?php echo $prestador->fromof6; ?></h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
                     <footer>
-                        <p>Preço/hora<strong>R$ <?=$prestador['cost']?></strong></p>
-                        <a target="_blank" href="https://wa.me/21993424566">
-                            <img src="assets/img/icons/whatsapp.svg" alt="whatsapp">
-                            entrar em contato
-                        </a>
+                        <div class="row">
+                            <div class="col d-flex justify-content-start">
+                                <p>Preço/hora<strong><br>R$ <?php  echo $prestador->cost; ?></strong></p>
+                            </div>
+                            <div class="col d-flex justify-content-end">
+                                <p class="text-right">pagamento por<strong><br><?php  echo $prestador->pagamento; ?> <?php  echo $prestador->pagamento1; ?> <?php  echo $prestador->pagamento2; ?></strong></p>
+                            </div>
+                        </div>
+                    <br>
+                        <div class="row d-flex justify-content-center">
+                            <a target="_blank" href="#">
+                                Contratar esse serviço
+                            </a>
+                        </div>
                     </footer>
                 </article>
 
