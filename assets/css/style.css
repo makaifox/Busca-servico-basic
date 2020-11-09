@@ -202,6 +202,21 @@ body {
   min-height: 3.5rem;
 }
 
+#preview {
+  margin-top: 2.5rem;
+  height: 7rem;
+  width: 7rem;
+  border-radius: 2rem;
+}
+
+.row-img {
+  height: 9rem;
+}
+
+#header-form {
+  height: 4rem;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -1976,6 +1991,7 @@ body, input, button, textarea {
     justify-content: center;
     align-items: center;
     width: 60rem;
+    margin: 0;
   }
 
   #page-cadastro .input-block input, .enviar {
@@ -2029,13 +2045,12 @@ body, input, button, textarea {
     justify-self: left;
   }
 
-  .uploadfotos::before {
-    margin-top: 6rem;
-    width: 40rem;
+  .uploadfotosServico {
+    width: 100%;
   }
 
   .uploadfotosServico::before {
-    width: 30rem;
+    max-width: 15rem;
   }
 }
 @media screen and (min-width: 1280px) {

@@ -9,6 +9,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="//use.fontawesome.com/releases/v5.7.2/css/all.css">
     <title>Just Virtua</title>
 </head>
@@ -22,13 +23,23 @@ session_start();
         </div>
       </div>
       <div id="page-cadastro-buttons" class="container">
+      
         <div id="header-form">
           <span class="cadastro-text">Cadastro</span>
         </div>
         <div class="input-container">
-      <form action="cadastrar_action.php" method="POST">
+      <form action="cadastrar_action.php" enctype="multipart/form-data" method="POST">
             <div>
               <legend> Preencha seus dados para começar. </legend>
+              <div class="row row-img">
+                  <div id="img-container" class="col">
+                        <img id="preview" src="assets/img/icons/user.svg" class="img-profile" >
+                  </div>
+                  <div class="col img-col">
+                      <input id="img-input" type="file" name="image" class="uploadfotos uploadfotosServico">
+                  </div>
+                </div>
+
               <div class="input-block"><label for="name">
 
               </label>
@@ -62,10 +73,30 @@ session_start();
           <input type="submit" class="enviar" value="Enviar">
         </footer>
       </form>
+
+
+
+       
+
+
     </div>
   </div>
 </div>
         </div>
+
+    <script>
+        function readImage() {
+        if (this.files && this.files[0]) {
+          var file = new FileReader();
+          file.onload = function(e) {
+              document.getElementById("preview").src = e.target.result;
+              
+          };       
+          file.readAsDataURL(this.files[0]);
+        }
+      }
+      document.getElementById("img-input").addEventListener("change", readImage, false);
+    </script>
 
 </body>
 </html>

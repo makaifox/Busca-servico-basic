@@ -42,22 +42,45 @@
     $cep = $_POST['cep'] ;
     $usuario = $_POST['usuario'];
     $senha =MD5 ($_POST['senha']) ;
+
+    $imagem = $_FILES['image']['tmp_name']; 
+    $tamanho = $_FILES['image']['size']; 
     
     require './config.php';
     
+
+//$tipo = $_FILES['image']['type']; 
+//$nomeImagem = $_FILES['image']['name'];
+
+if ( $imagem != "none" ) { 
+    $fp = fopen($imagem, "rb"); 
+    $conteudo = fread($fp, $tamanho); 
+    $conteudo = addslashes($conteudo); 
+    fclose($fp); 
+
+    $query = "INSERT INTO usuarios(foto,nome,sobrenome,email,cpfcnpj,cep,usuario,senha,) VALUES(
+      '$conteudo','$nome','$sobrenome','$email','$cpfcnpj','$cep','$usuario','$senha')";
+    $insert = mysqli_query($con,$query);
+
+    if($insert){
+      echo"<script language='javascript' type='text/javascript'>
+      alert('Usuário cadastrado com sucesso!')";
+    }else{
+      echo"<script language='javascript' type='text/javascript'>
+      alert('Não foi possível cadastrar esse usuário');";
+    }
+  
+
+    if(mysqli_affected_rows($conexao) > 0) 
+        print "A imagem foi salva na base de dados."; 
+    else 
+        print "Não foi possível salvar a imagem na base de dados."; 
+
+} else 
+    print "Não foi possível carregar a imagem.";
+
+
    
-            $query = "INSERT INTO usuarios(nome,sobrenome,email,cpfcnpj,cep,usuario,senha) VALUES(
-              '$nome','$sobrenome','$email','$cpfcnpj','$cep','$usuario','$senha')";
-            $insert = mysqli_query($con,$query);
-    
-            if($insert){
-              echo"<script language='javascript' type='text/javascript'>
-              alert('Usuário cadastrado com sucesso!');window.location.
-              href='index.php'</script>";
-            }else{
-              echo"<script language='javascript' type='text/javascript'>
-              alert('Não foi possível cadastrar esse usuário');";
-            }
           
 
         

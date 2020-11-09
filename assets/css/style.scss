@@ -246,6 +246,21 @@ body {
     min-height: 3.5rem;
 }
 
+#preview {
+    margin-top: 2.5rem;
+    height:7rem; 
+    width: 7rem; 
+    border-radius: 2rem;
+}
+
+.row-img {
+    height: 9rem;
+}
+
+#header-form {
+    height: 4rem;
+}
+
 @import 'style-proffisionais';
 @import 'styles-mobile';
 @import 'styles-mobile-min700';

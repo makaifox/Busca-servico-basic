@@ -450,6 +450,7 @@
     justify-content: center;
     align-items: center;
     width:60rem;
+    margin: 0;
     
     
 }
@@ -507,13 +508,13 @@
         grid-area: total;
         justify-self: left;
     }
-
-    .uploadfotos::before {
-        margin-top: 6rem;
-        width: 40rem;
-      }
+        .uploadfotosServico {
+        width: 100%;
+        }
     
       .uploadfotosServico::before{
-        width: 30rem;
+        max-width: 15rem;
+     
+        
     }
 }

@@ -158,7 +158,7 @@ $nome = $_SESSION["nome"];
                     <legend>Fotos do serviço
                         <button type="button" >+ Adicionar mais</button>
                     </legend>
-                    <div class="row">
+                    <!-- <div class="row">
                             <div class="col-4">
                                 <div id="visualizar">
                                     <img src="assets/img/icons/user.svg" class="user-pic" alt="foto">
@@ -167,7 +167,7 @@ $nome = $_SESSION["nome"];
                             <div class="col-8">
                                     <input type="file" id="imagem" name="imagem"  class="uploadfotos uploadfotosServico"/>
                             </div>
-                        </div>
+                        </div> -->
                     <p>
                         <img src="assets/img/icons/warning.svg" alt="Aviso importante">
                         Fotos são pendentes de avaliação

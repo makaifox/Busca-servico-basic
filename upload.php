@@ -45,59 +45,12 @@
     $cpfcnpj = $_SESSION["cpfcnpj"];
     $cep = $_SESSION["cep"];
 
-    
-    
-    $pasta = "uploads/";
-
-    /* formatos de imagem permitidos */
-    $permitidos = array(".jpg",".jpeg",".gif",".png", ".bmp");
-
-    if(isset($_POST)){
-        $nome_imagem    = $_FILES['imagem']['name'];
-        $tamanho_imagem = $_FILES['imagem']['size'];
-
-        /* pega a extensão do arquivo */
-        $ext = strtolower(strrchr($nome_imagem,"."));
-
-        /*  verifica se a extensão está entre as extensões permitidas */
-        if(in_array($ext,$permitidos)){
-
-            /* converte o tamanho para KB */
-            $tamanho = round($tamanho_imagem / 1024);
-
-            if($tamanho < 2048){ //se imagem for até 2MB envia
-                $nome_atual = md5(uniqid(time())).$ext;
-                //nome que dará a imagem
-                $tmp = $_FILES['imagem']['tmp_name'];
-                //caminho temporário da imagem
-
-                /* se enviar a foto, insere o nome da foto no banco de dados */
-                if(move_uploaded_file($tmp,$pasta.$nome_atual)){
-                    // mysqli_query($con,"INSERT INTO servicos (foto)
-                    // VALUES ('$nome_atual')");
-                    echo "<br/><img src='uploads/".$nome_atual."'
-                    id='previsualizar' style='  height: 10rem;width: 10rem;border-radius: 20rem !important;'>";
-                     //imprime a foto na tela
-                }else{
-                    echo "Falha ao enviar";
-                }
-            }else{
-                echo "A imagem deve ser de no máximo 2MB";
-            }
-        }else{
-            echo "Somente são aceitos arquivos do tipo Imagem";
-        }
-    }else{
-        echo "Selecione uma imagem";
-        exit;
-    }
-
 
     
 
-    $query = "INSERT INTO servicos(nome,sobrenome,email,cpfcnpj,cep,servico,cost,registro,week_day,week_day1,week_day2,week_day3,week_day4,week_day5,week_day6,fromof,fromof1,fromof2,fromof3,fromof4,fromof5,fromof6,toof,toof1,toof2,toof3,toof4,toof5,toof6,pagamento,pagamento1,pagamento2,pagamento3,pagamento4,pagamento5,idUser,idUser1,idUser2,idUser3,idUser4,idUser5,foto) 
+    $query = "INSERT INTO servicos(nome,sobrenome,email,cpfcnpj,cep,servico,cost,registro,week_day,week_day1,week_day2,week_day3,week_day4,week_day5,week_day6,fromof,fromof1,fromof2,fromof3,fromof4,fromof5,fromof6,toof,toof1,toof2,toof3,toof4,toof5,toof6,pagamento,pagamento1,pagamento2,pagamento3,pagamento4,pagamento5,idUser,idUser1,idUser2,idUser3,idUser4,idUser5) 
     VALUES
-    ('$nome','$sobrenome','$email','$cpfcnpj','$cep','$servico','$cost','$registro','$week_day','$week_day1','$week_day2','$week_day3','$week_day4','$week_day5','$week_day6','$from','$from1','$from2','$from3','$from4','$from5','$from6','$to','$to1','$to2','$to3','$to4','$to5','$to6','$pagamento','$pagamento1','$pagamento2','$pagamento3','$pagamento4','$pagamento5','$idUser','$idUser1','$idUser2','$idUser3','$idUser4','$idUser5','$nome_atual')";
+    ('$nome','$sobrenome','$email','$cpfcnpj','$cep','$servico','$cost','$registro','$week_day','$week_day1','$week_day2','$week_day3','$week_day4','$week_day5','$week_day6','$from','$from1','$from2','$from3','$from4','$from5','$from6','$to','$to1','$to2','$to3','$to4','$to5','$to6','$pagamento','$pagamento1','$pagamento2','$pagamento3','$pagamento4','$pagamento5','$idUser','$idUser1','$idUser2','$idUser3','$idUser4','$idUser5')";
       $insert = mysqli_query($con,$query);
 
       if($insert){
