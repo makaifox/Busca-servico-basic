@@ -45,23 +45,43 @@
     $cpfcnpj = $_SESSION["cpfcnpj"];
     $cep = $_SESSION["cep"];
 
+    $uploadFolder = 'uploads/';
 
+   foreach ($_FILES['upload_file']['tmp_name'] as $key => $image) {
+      $imageTmpName = $_FILES['upload_file']['tmp_name'][$key];
+      $imageName = $_FILES['upload_file']['name'][$key];
+      $result = move_uploaded_file($imageTmpName,$uploadFolder.$imageName);
+      echo $imageName.'<br>';
+
+        // save to database
+        $query = "INSERT INTO images SET servico='$servico', imgName='$imageName' " ;
+        $insert = mysqli_query($con,$query);
+    }
+    if ($result) {
+        echo '<script>alert("Images uploaded successfully !")</script>';
+        echo '<script>window.location.href="index.php";</script>';
+    }
+
+   
+   echo $imageName.'<br>';
+   
+   
     
 
-    $query = "INSERT INTO servicos(nome,sobrenome,email,cpfcnpj,cep,servico,cost,registro,week_day,week_day1,week_day2,week_day3,week_day4,week_day5,week_day6,fromof,fromof1,fromof2,fromof3,fromof4,fromof5,fromof6,toof,toof1,toof2,toof3,toof4,toof5,toof6,pagamento,pagamento1,pagamento2,pagamento3,pagamento4,pagamento5,idUser,idUser1,idUser2,idUser3,idUser4,idUser5) 
-    VALUES
-    ('$nome','$sobrenome','$email','$cpfcnpj','$cep','$servico','$cost','$registro','$week_day','$week_day1','$week_day2','$week_day3','$week_day4','$week_day5','$week_day6','$from','$from1','$from2','$from3','$from4','$from5','$from6','$to','$to1','$to2','$to3','$to4','$to5','$to6','$pagamento','$pagamento1','$pagamento2','$pagamento3','$pagamento4','$pagamento5','$idUser','$idUser1','$idUser2','$idUser3','$idUser4','$idUser5')";
-      $insert = mysqli_query($con,$query);
+    // $query = "INSERT INTO servicos(nome,sobrenome,email,cpfcnpj,cep,servico,cost,registro,week_day,week_day1,week_day2,week_day3,week_day4,week_day5,week_day6,fromof,fromof1,fromof2,fromof3,fromof4,fromof5,fromof6,toof,toof1,toof2,toof3,toof4,toof5,toof6,pagamento,pagamento1,pagamento2,pagamento3,pagamento4,pagamento5,idUser,idUser1,idUser2,idUser3,idUser4,idUser5) 
+    // VALUES
+    // ('$nome','$sobrenome','$email','$cpfcnpj','$cep','$servico','$cost','$registro','$week_day','$week_day1','$week_day2','$week_day3','$week_day4','$week_day5','$week_day6','$from','$from1','$from2','$from3','$from4','$from5','$from6','$to','$to1','$to2','$to3','$to4','$to5','$to6','$pagamento','$pagamento1','$pagamento2','$pagamento3','$pagamento4','$pagamento5','$idUser','$idUser1','$idUser2','$idUser3','$idUser4','$idUser5')";
+    //   $insert = mysqli_query($con,$query);
 
-      if($insert){
-        echo"<script language='javascript' type='text/javascript'>
-        alert('serviço cadastrado com sucesso!');window.location.
-        href='home.php'</script>";
-      }else{
-        echo"<script language='javascript' type='text/javascript'>
-        alert('Não foi possível cadastrar seu serviço');window.location.
-        href='oferecer.php'</script>";
-      }
+    //   if($insert){
+    //     echo"<script language='javascript' type='text/javascript'>
+    //     alert('serviço cadastrado com sucesso!');window.location.
+    //     href='home.php'</script>";
+    //   }else{
+    //     echo"<script language='javascript' type='text/javascript'>
+    //     alert('Não foi possível cadastrar seu serviço');window.location.
+    //     href='oferecer.php'</script>";
+    //   }
     
 
 ?>

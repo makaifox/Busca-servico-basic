@@ -63,8 +63,10 @@ require './config.php';
         die();
       }else{
 
+        $_SESSION['id'] = $bd["id"];
         $_SESSION['usuario'] = $usuario;
         $_SESSION['senha'] = $senha;
+        $_SESSION["foto"]  = $bd["foto"];
         $_SESSION["nome"]  = $bd["nome"];
         $_SESSION["sobrenome"]  = $bd["sobrenome"];
         $_SESSION["email"]  = $bd["email"];

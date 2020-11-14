@@ -38,46 +38,99 @@
     $nome = $_POST['nome'];
     $sobrenome = $_POST['sobrenome'];
     $email = $_POST['email'];
+    $profissao = $_POST['profissao'];
     $cpfcnpj = $_POST['cpfcnpj'] ;
     $cep = $_POST['cep'] ;
     $usuario = $_POST['usuario'];
     $senha =MD5 ($_POST['senha']) ;
 
-    $imagem = $_FILES['image']['tmp_name']; 
-    $tamanho = $_FILES['image']['size']; 
+    // $imagem = $_FILES['image']['tmp_name']; 
+    // $tamanho = $_FILES['image']['size']; 
     
     require './config.php';
     
 
-//$tipo = $_FILES['image']['type']; 
-//$nomeImagem = $_FILES['image']['name'];
+$pasta = "uploads/";
 
-if ( $imagem != "none" ) { 
-    $fp = fopen($imagem, "rb"); 
-    $conteudo = fread($fp, $tamanho); 
-    $conteudo = addslashes($conteudo); 
-    fclose($fp); 
+    /* formatos de imagem permitidos */
+    $permitidos = array(".jpg",".jpeg",".gif",".png", ".bmp");
 
-    $query = "INSERT INTO usuarios(foto,nome,sobrenome,email,cpfcnpj,cep,usuario,senha,) VALUES(
-      '$conteudo','$nome','$sobrenome','$email','$cpfcnpj','$cep','$usuario','$senha')";
-    $insert = mysqli_query($con,$query);
+    if(isset($_POST)){
+        $nome_imagem    = $_FILES['image']['name'];
+        $tamanho_imagem = $_FILES['image']['size'];
 
-    if($insert){
-      echo"<script language='javascript' type='text/javascript'>
-      alert('Usuário cadastrado com sucesso!')";
+        /* pega a extensão do arquivo */
+        $ext = strtolower(strrchr($nome_imagem,"."));
+
+        /*  verifica se a extensão está entre as extensões permitidas */
+        if(in_array($ext,$permitidos)){
+
+            /* converte o tamanho para KB */
+            $tamanho = round($tamanho_imagem / 1024);
+
+            if($tamanho < 2048){ //se imagem for até 2MB envia
+                $nome_atual = md5(uniqid(time())).$ext;
+                //nome que dará a imagem
+                $tmp = $_FILES['image']['tmp_name'];
+                //caminho temporário da imagem
+
+                /* se enviar a foto, insere o nome da foto no banco de dados */
+                if(move_uploaded_file($tmp,$pasta.$nome_atual)){
+
+                 
+                  
+
+
+                  $query = "INSERT INTO usuarios(foto,nome,sobrenome,email,profissao,cpfcnpj,cep,usuario,senha) VALUES(
+                    '$nome_atual','$nome','$sobrenome','$email','$profissao','$cpfcnpj','$cep','$usuario','$senha')";
+                  $insert = mysqli_query($con,$query);
+
+                  echo $query;
+              
+                  if($insert){
+                    echo"<script language='javascript' type='text/javascript'>
+                    alert('Cadastro efetuado com sucesso!!');window.location
+                    .href='index.php';</script>";
+                  }else{
+                    echo"<script language='javascript' type='text/javascript'>
+                    alert('Houve um erro, tente novamente mais tarde');";
+                  }
+                
+
+
+
+
+
+                }else{
+                    echo "Falha ao enviar";
+                }
+            }else{
+                echo "A imagem deve ser de no máximo 2MB";
+            }
+        }else{
+            echo "Somente são aceitos arquivos do tipo Imagem";
+        }
     }else{
-      echo"<script language='javascript' type='text/javascript'>
-      alert('Não foi possível cadastrar esse usuário');";
+        echo "Selecione uma imagem";
+        exit;
     }
-  
 
-    if(mysqli_affected_rows($conexao) > 0) 
-        print "A imagem foi salva na base de dados."; 
-    else 
-        print "Não foi possível salvar a imagem na base de dados."; 
 
-} else 
-    print "Não foi possível carregar a imagem.";
+
+
+
+// if ( $imagem != "none" && $nome != "none" ) { 
+//     $fp = fopen($imagem, "rb"); 
+//     $conteudo = fread($fp, $tamanho); 
+//     $conteudo = addslashes($conteudo); 
+//     fclose($fp); 
+    
+
+    
+
+    
+// } else 
+//     print "houve um erro.";
 
 
    

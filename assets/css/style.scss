@@ -25,6 +25,13 @@ $white: white;
 @import 'root';
 
 
+
+
+
+pre {
+    display: none !important;
+}
+
 body {
     background-color: #E5E5E5;
     font: Poppins 600 normal;
@@ -201,6 +208,8 @@ body {
     width: 26rem;
   }
 
+  
+
   .uploadfotosServico::before{
       width: 25rem;
   }
@@ -253,6 +262,15 @@ body {
     border-radius: 2rem;
 }
 
+#preview-edit {
+    margin-top: 0;
+    height:12rem; 
+    width: 12rem; 
+    border-radius: 6rem;
+    background-color: #525252;
+
+}
+
 .row-img {
     height: 9rem;
 }
@@ -260,6 +278,37 @@ body {
 #header-form {
     height: 4rem;
 }
+
+#page-landing .user-pic {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 2rem;
+    
+    
+}
+.uploadfotos-edit{
+    width:100% !important;
+}
+
+.uploadfotos-edit::before {
+    font-family: FontAwesome;
+    content:  "alterar";
+    height: 4rem;
+    background: #04D361;
+    color: #FFFFFF;
+    border: 0;
+    border-radius: 2rem;
+    cursor: pointer;
+    font: 700 1.6rem Archivo;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: background-color 0.2s;
+    margin-top: -20rem;
+    margin-left: 18rem;
+    width: 6rem;
+  }
 
 @import 'style-proffisionais';
 @import 'styles-mobile';

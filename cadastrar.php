@@ -15,9 +15,15 @@ session_start();
 </head>
 <body>
   <div id="root">
+    
     <div id="page-cadastro">
+
+
+
       <div id="page-cadastro-content" class="container">
+        
         <div class="logo-container">
+          
           <img src="/assets/img/logo.png" alt="BuscaServiço">
           <h2>Sua plataforma de <br>serviços online.</h2>
         </div>
@@ -25,6 +31,7 @@ session_start();
       <div id="page-cadastro-buttons" class="container">
       
         <div id="header-form">
+          
           <span class="cadastro-text">Cadastro</span>
         </div>
         <div class="input-container">
@@ -36,9 +43,9 @@ session_start();
                         <img id="preview" src="assets/img/icons/user.svg" class="img-profile" >
                   </div>
                   <div class="col img-col">
-                      <input id="img-input" type="file" name="image" class="uploadfotos uploadfotosServico">
+                      <input id="img-input" type="file" name="image" class="uploadfotos uploadfotosServico" required>
                   </div>
-                </div>
+              </div>
 
               <div class="input-block"><label for="name">
 
@@ -53,6 +60,10 @@ session_start();
               <label for="email"></label>
               <input type="email" id="email" placeholder="E-mail" name="email" required>
             </div>
+            <div class="input-block">
+            <label for="profissao"></label>
+            <input type="text" id="profissao" placeholder="Profissão" name="profissao"  required>
+          </div>
             <div class="input-block"><label for="Cpf / CNPJ">
             </label><input type="number" id="Cpf / CNPJ" placeholder="CPF / CNPJ" name="cpfcnpj" required>
           </div>
@@ -68,8 +79,10 @@ session_start();
             <label for="password"></label>
             <input type="password" id="password" placeholder="Senha" name="senha"  required>
           </div>
+
         </div>
         <footer>
+
           <input type="submit" class="enviar" value="Enviar">
         </footer>
       </form>

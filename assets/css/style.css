@@ -2,6 +2,10 @@
   font-size: 60%;
 }
 
+pre {
+  display: none !important;
+}
+
 body {
   background-color: #E5E5E5;
   font: Poppins 600 normal;
@@ -209,12 +213,50 @@ body {
   border-radius: 2rem;
 }
 
+#preview-edit {
+  margin-top: 0;
+  height: 12rem;
+  width: 12rem;
+  border-radius: 6rem;
+  background-color: #525252;
+}
+
 .row-img {
   height: 9rem;
 }
 
 #header-form {
   height: 4rem;
+}
+
+#page-landing .user-pic {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 2rem;
+}
+
+.uploadfotos-edit {
+  width: 100% !important;
+}
+
+.uploadfotos-edit::before {
+  font-family: FontAwesome;
+  content: "alterar";
+  height: 4rem;
+  background: #04D361;
+  color: #FFFFFF;
+  border: 0;
+  border-radius: 2rem;
+  cursor: pointer;
+  font: 700 1.6rem Archivo;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: background-color 0.2s;
+  margin-top: -20rem;
+  margin-left: 18rem;
+  width: 6rem;
 }
 
 * {
@@ -589,17 +631,6 @@ body, input, button, textarea {
   outline: 0;
   padding: 0 1.6rem;
   font: 1.6rem Archivo;
-}
-
-.input-block:focus-within::after {
-  width: calc(100% - 3.2rem);
-  height: 2px;
-  content: "";
-  background: #916BEA;
-  position: absolute;
-  left: 1.6rem;
-  right: 1.6rem;
-  bottom: 0;
 }
 
 .select-block {
@@ -1752,34 +1783,44 @@ body, input, button, textarea {
     margin-left: -10px;
     color: #525252;
   }
-
   #page-landing .login-button {
     width: 4rem;
     height: 4rem;
     border-radius: 0.6rem;
   }
-
   #page-landing .login-button img {
     width: 2rem;
     height: 2rem;
     margin: 25%;
   }
-
   #page-landing .user-pic {
     width: 4rem;
     height: 4rem;
-    border-radius: 0.6rem;
+    border-radius: 2rem;
   }
-
-  #page-landing-buttons {
-    max-width: 100vw;
+  #page-landing #page-landing-buttons {
+    max-width: 90vw;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-areas: "bemvindo total  buttons buttons ";
   }
-
   #page-landing .login-area {
-    width: 100rem;
+    width: 90vw;
+  }
+  #page-landing .buttons-container {
+    grid-area: buttons;
+    justify-content: flex-start;
+  }
+  #page-landing .buttons-container a {
+    font-size: 2rem;
+  }
+  #page-landing .bem-vindo {
+    grid-area: bemvindo;
+    justify-self: center;
+  }
+  #page-landing .total-connections {
+    grid-area: total;
+    justify-self: left;
   }
 
   #logo-container {
@@ -1795,26 +1836,7 @@ body, input, button, textarea {
   }
 
   #logo-container img {
-    max-width: 50rem;
-  }
-
-  #page-landing .buttons-container {
-    grid-area: buttons;
-    justify-content: flex-start;
-  }
-
-  #page-landing .buttons-container a {
-    font-size: 2rem;
-  }
-
-  #page-landing .bem-vindo {
-    grid-area: bemvindo;
-    justify-self: center;
-  }
-
-  #page-landing .total-connections {
-    grid-area: total;
-    justify-self: left;
+    max-width: 50vw;
   }
 
   #page-login {
@@ -1995,7 +2017,7 @@ body, input, button, textarea {
   }
 
   #page-cadastro .input-block input, .enviar {
-    height: 5.2rem;
+    height: 4.6rem;
     width: 40rem;
   }
 
@@ -2051,6 +2073,10 @@ body, input, button, textarea {
 
   .uploadfotosServico::before {
     max-width: 15rem;
+  }
+
+  .uploadfotos-edit::before {
+    margin-left: 23rem;
   }
 }
 @media screen and (min-width: 1280px) {

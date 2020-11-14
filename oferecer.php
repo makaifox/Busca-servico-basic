@@ -156,21 +156,26 @@ $nome = $_SESSION["nome"];
                 </div>
                 <div class="fieldset">
                     <legend>Fotos do serviço
-                        <button type="button" >+ Adicionar mais</button>
+                    <input type="file" id="upload_file" name="upload_file[]" class="uploadfotos uploadfotosServico" onchange="preview_image();" multiple required>
                     </legend>
-                    <!-- <div class="row">
-                            <div class="col-4">
-                                <div id="visualizar">
-                                    <img src="assets/img/icons/user.svg" class="user-pic" alt="foto">
-                                </div>
+
+                    <div id="img-div">
+                            <div id="img-container" class="col">
+                                <div class="row">
+                                    <div id="image_preview" class="img-profile" ></div>
+                                </div>  
                             </div>
-                            <div class="col-8">
-                                    <input type="file" id="imagem" name="imagem"  class="uploadfotos uploadfotosServico"/>
+                            <div class="col img-col">
+                                 
                             </div>
-                        </div> -->
-                    <p>
-                        <img src="assets/img/icons/warning.svg" alt="Aviso importante">
-                        Fotos são pendentes de avaliação
+                    </div>
+                
+                
+
+                    <br>
+                    <br>
+                    <p class="col">
+                       * Fotos são pendentes de avaliação
                     </p>
                     </div>
                 </div>
@@ -184,26 +189,16 @@ $nome = $_SESSION["nome"];
 
             
 
-            
-            </main>
-        </div>
-    </div>
+            <script>
 
-
-<script> 
-
-
-
-$(document).ready(function(){
-     /* #imagem é o id do input, ao alterar o conteudo do input execurará a função baixo */
-     $('#imagem').live('change',function(){
-         $('#visualizar').html('<img src="/assets/img/ajax-loader.gif" alt="Enviando..." style="width: 7rem;"/> Enviando...');
-        /* Efetua o Upload sem dar refresh na pagina */           
-        $('#formulario').ajaxForm({
-            target:'#visualizar' // o callback será no elemento com o id #visualizar
-         });
-     });
- })
+function preview_image() 
+{
+ var total_file=document.getElementById("upload_file").files.length;
+ for(var i=0;i<total_file;i++)
+ {
+  $('#image_preview').append("<img style='width:10rem; height:10rem; border-radius: 3rem;' src='"+URL.createObjectURL(event.target.files[i])+"'>");
+ }
+}
 
 
 
