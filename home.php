@@ -1,10 +1,5 @@
 <?php
-/* esse bloco de código em php verifica se existe a sessão, pois o usuário pode
- simplesmente não fazer o login e digitar na barra de endereço do seu navegador
-o caminho para a página principal do site (sistema), burlando assim a obrigação de
-fazer um login, com isso se ele não estiver feito o login não será criado a session,
-então ao verificar que a session não existe a página redireciona o mesmo
- para a index.php.*/
+
 session_start();
 if((!isset ($_SESSION['usuario']) == true) and (!isset ($_SESSION['senha']) == true))
 {
@@ -30,7 +25,8 @@ $foto = $_SESSION["foto"];
     <link rel="stylesheet" type="text/css" href="//use.fontawesome.com/releases/v5.7.2/css/all.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>    <title>Just Virtua</title>'
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>    
+    <title>Just Virtua</title>
 </head>
 <body>
 

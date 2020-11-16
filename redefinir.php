@@ -35,23 +35,3 @@
 
 
 
-function drawBasic() {
-
-    var data = google.visualization.arrayToDataTable([
-      ['DG', 'ARTES', { role: 'style' } ],
-      ['ARTES', 8175000, 'color: #76A7FA'],
-      ['IMPRESSÕES', 3792000],
-    ]);
-
-    var options = {
-      title: 'DESIGNER GRÁFICO',
-      chartArea: {width: '50%'},
-      hAxis: {
-        title: '',
-        minValue: 0
-      },
-      vAxis: {
-        title: 'DG'
-      }
-    };
-

@@ -2,7 +2,7 @@
     include('config.php');
     session_start();
 
-    $id = $_SESSION["id"];
+    $idUser = $_SESSION["id"];
 
     $servico = $_POST['servico'];
     $cost = $_POST['cost'];
@@ -54,11 +54,9 @@
       $result = move_uploaded_file($imageTmpName,$uploadFolder.$imageName);
       
 
-        // save to database
-        // $query = "INSERT INTO images SET id='$id'servico='$servico', imgName='$imageName' " ;
-        // $insert = mysqli_query($con,$query);
 
-        $query = "INSERT INTO Images(id,servico,imgName) VALUES ('$id','$servico','$imageName')";
+
+        $query = "INSERT INTO Images(servico,imgName,idfoto) VALUES ($servico','$imageName','$idUser')";
         $insert = mysqli_query($con,$query);
     }
  

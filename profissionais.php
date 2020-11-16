@@ -1,10 +1,5 @@
 <?php
-/* esse bloco de código em php verifica se existe a sessão, pois o usuário pode
- simplesmente não fazer o login e digitar na barra de endereço do seu navegador
-o caminho para a página principal do site (sistema), burlando assim a obrigação de
-fazer um login, com isso se ele não estiver feito o login não será criado a session,
-então ao verificar que a session não existe a página redireciona o mesmo
- para a index.php.*/
+
 session_start();
 if((!isset ($_SESSION['usuario']) == true) and (!isset ($_SESSION['senha']) == true))
 {
@@ -14,6 +9,7 @@ if((!isset ($_SESSION['usuario']) == true) and (!isset ($_SESSION['senha']) == t
   }
 
 $logado = $_SESSION['usuario'];
+$id = $_SESSION['id'];
 
 require './buscar_action.php';
 
@@ -24,7 +20,16 @@ require './buscar_action.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  <script>
+	  $('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+})
+  </script>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="//use.fontawesome.com/releases/v5.7.2/css/all.css">
     <title>Just Virtua</title>
@@ -72,23 +77,7 @@ require './buscar_action.php';
                                 
                             </select>
                         </div>
-                        <!-- <div class="select-block">
-                            <label for="week_day">Dia da semana</label>
-                            <select id="week_day" name="week_day">
-                                <option value="" disabled="" hidden="">Selecione uma opção</option>
-                                <option value="0">Domingo</option>
-                                <option value="1">Segunda-feira</option>
-                                <option value="2">Terça-feira</option>
-                                <option value="3">Quarta-feira</option>
-                                <option value="4">Quinta-feira</option>
-                                <option value="5">Sexta-feira</option>
-                                <option value="6">Sábado</option>
-                            </select>
-                        </div>
-                        <div class="input-block">
-                            <label for="time">Horário</label>
-                            <input type="time" id="time" value=" " name="fromof">
-                        </div> -->
+                  
                         <button type="submit"> Buscar</button>
                     </form>
                 </div>
@@ -120,11 +109,13 @@ if ($a == "buscar") {
                     <header>
                         <img src="uploads/<?php echo $prestador->foto; ?>" alt="<?php echo $prestador->nome; ?>">
                         <div>
-                            <strong><?php echo $prestador->nome; ?> <?php echo $prestador->sobrenome; ?></strong>
-                            <span><?php echo $prestador->servico; ?></span>
+                            <strong><?php echo $prestador->servico; ?></strong>
+                            
                         </div>
                     </header>
+                    <p>Disponibilidade</p>
                     <div class="row row-cards d-flex justify-content-center">
+                    
                         <div class="col-2 col-card">
                             <div class="card card-date" >
                             
@@ -234,12 +225,56 @@ if ($a == "buscar") {
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <br>
+                        <p>Imagens</p>
+                    <br>
+                    <div class="row row-cards d-flex justify-content-center">
+
+                        
+                        <!-- Modal -->
+                        
+                        
+                        <?php
+                            // fetch Images
+                            $idFoto = $prestador->idfoto;  
+                            $profissaoPhoto = $prestador->servico;  
+                            
+                            $i = 1;
+                            include "config.php";
+                            $queryGetImg = "SELECT * FROM Images WHERE  servico = '$profissaoPhoto'  AND id = $idFoto";
+                            $resultImg = $con->query($queryGetImg);
+
+                            if ($resultImg->num_rows > 0 ){
+                            while ($row = $resultImg->fetch_object()){ ?>
+                                     <a href="#" type="button" class="" data-toggle="modal" data-target="#exampleModal<?php echo $i?>">
+                                        <img class="releases" src="<?php echo 'uploads/'.$row->imgName;?>"/>
+                                    </a>
+                                    
+                                    <div class="modal fade" id="exampleModal<?php echo $i?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <img class="releaseModal" src="<?php echo 'uploads/'.$row->imgName;?>"/>
+
+
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+
+
+
+                                <?php $i++;
+                            }
+                            }
+                        ?>
                         
                     </div>
                     <footer>
                         <div class="row">
                             <div class="col d-flex justify-content-start">
-                                <p>Preço/hora<strong><br>R$ <?php  echo $prestador->cost; ?></strong></p>
+                                <p>Custo da consulta/hora<strong><br>R$ <?php  echo $prestador->cost; ?></strong></p>
                             </div>
                             <div class="col d-flex justify-content-end">
                                 <p class="text-right">pagamento por<strong><br><?php  echo $prestador->pagamento; ?> <?php  echo $prestador->pagamento1; ?> <?php  echo $prestador->pagamento2; ?></strong></p>
@@ -251,8 +286,14 @@ if ($a == "buscar") {
                                 Contratar esse serviço
                             </a>
                         </div>
+                       
                     </footer>
                 </article>
+                
+
+
+
+
 
                 <?php
         }
@@ -265,6 +306,8 @@ if ($a == "buscar") {
         </div>
     </div>
 
+
+
 </body>
 </html>
 
@@ -272,3 +315,5 @@ if ($a == "buscar") {
 // tira o resultado da busca da memória
 mysqli_free_result($dados);
 ?>
+
+

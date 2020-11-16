@@ -1,10 +1,5 @@
 <?php
-/* esse bloco de código em php verifica se existe a sessão, pois o usuário pode
- simplesmente não fazer o login e digitar na barra de endereço do seu navegador
-o caminho para a página principal do site (sistema), burlando assim a obrigação de
-fazer um login, com isso se ele não estiver feito o login não será criado a session,
-então ao verificar que a session não existe a página redireciona o mesmo
- para a index.php.*/
+
 session_start();
 if((!isset ($_SESSION['usuario']) == true) and (!isset ($_SESSION['senha']) == true))
 {
@@ -153,16 +148,6 @@ $cep = $_SESSION["cep"];
 
 
 
-// $(document).ready(function(){
-//      /* #imagem é o id do input, ao alterar o conteudo do input execurará a função baixo */
-//      $('#imagem').live('change',function(){
-//          $('#visualizar').html('<img src="/assets/img/ajax-loader.gif" alt="Enviando..." style="width: 7rem;"/> Enviando...');
-//         /* Efetua o Upload sem dar refresh na pagina */           
-//         $('#formulario').ajaxForm({
-//             target:'#visualizar' // o callback será no elemento com o id #visualizar
-//          });
-//      });
-//  })
 
 
 
