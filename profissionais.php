@@ -24,7 +24,7 @@ require './buscar_action.php';
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+    <script src="assets/js/rating.js"></script>
   <script>
 	  $('#myModal').on('shown.bs.modal', function () {
   $('#myInput').trigger('focus')
@@ -88,6 +88,7 @@ require './buscar_action.php';
 // Conexão com o banco de dados
 require './config.php';
 // Recuperamos a ação enviada pelo formulário
+$star = 1;
 $a = $_GET['a'];
 // Verificamos se a ação é de busca
 if ($a == "buscar") {
@@ -109,8 +110,30 @@ if ($a == "buscar") {
                     <header>
                         <img src="uploads/<?php echo $prestador->foto; ?>" alt="<?php echo $prestador->nome; ?>">
                         <div>
-                            <strong><?php echo $prestador->servico; ?></strong>
+                            <strong><?php echo $prestador->servico; ?><br>
                             
+                                <a href="javascript:void(0)" class="starlink" onclick="Avaliar'<?php echo $star; ?>'(1)">
+                                    <img src="assets/img/star0.png" class="star" id="'<?php echo $star; ?>'s1">
+                                </a>
+
+                                <a href="javascript:void(0)" class="starlink" onclick="Avaliar'<?php echo $star; ?>'(2)">
+                                    <img src="assets/img/star0.png" class="star"  id="'<?php echo $star; ?>'s2">
+                                </a>
+
+                                <a href="javascript:void(0)"  class="starlink" onclick="Avaliar'<?php echo $star; ?>'(3)">
+                                    <img src="assets/img/star0.png" class="star" id="'<?php echo $star; ?>'s3">
+                                </a>
+
+                                <a href="javascript:void(0)" class="starlink" onclick="Avaliar'<?php echo $star; ?>'(4)">
+                                    <img src="assets/img/star0.png" class="star" id="'<?php echo $star; ?>'s4">
+                                </a>
+
+                                <a href="javascript:void(0)" class="starlink" onclick="Avaliar'<?php echo $star; ?>'(5)">
+                                    <img src="assets/img/star0.png"class="star"  id="'<?php echo $star; ?>'s5">
+                                </a>
+                                <p id="rating'<?php echo $star; ?>'">0</p>
+                            
+                                </strong> 
                         </div>
                     </header>
                     <p>Disponibilidade</p>
@@ -295,7 +318,8 @@ if ($a == "buscar") {
 
 
 
-                <?php
+                <?php     
+                
         }
 		 } else {
             echo "Nenhum serviço de ".$servico." foi encontrado no momento ";

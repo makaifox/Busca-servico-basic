@@ -272,6 +272,19 @@ body {
   border-radius: 3rem;
 }
 
+.star {
+  width: 2rem !important;
+  height: 2rem !important;
+}
+
+.starlink:hover {
+  text-decoration: none;
+}
+
+#rating {
+  display: none;
+}
+
 * {
   margin: 0;
   padding: 0;

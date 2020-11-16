@@ -324,6 +324,21 @@ body {
     border-radius: 3rem;
 }
 
+.star{
+    width: 2rem !important;
+    height: 2rem !important;
+    
+}
+
+.starlink:hover{
+    text-decoration: none;
+}
+
+
+#rating {
+    display: none;
+}
+
 @import 'style-proffisionais';
 @import 'styles-mobile';
 @import 'styles-mobile-min700';
