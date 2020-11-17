@@ -24,7 +24,7 @@ require './buscar_action.php';
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="assets/js/rating.js"></script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <script>
 	  $('#myModal').on('shown.bs.modal', function () {
   $('#myInput').trigger('focus')
@@ -88,6 +88,8 @@ require './buscar_action.php';
 // Conexão com o banco de dados
 require './config.php';
 // Recuperamos a ação enviada pelo formulário
+
+
 $star = 1;
 $a = $_GET['a'];
 // Verificamos se a ação é de busca
@@ -103,35 +105,85 @@ if ($a == "buscar") {
     if ($numRegistros != 0) {
         // Exibe os produtos e seus respectivos preços
         while ($prestador = mysqli_fetch_object($sql)) {
+            
+    
+    
+            $idFoto = $prestador->idfoto;  
+            $profissaoPhoto = $prestador->servico; 
+
+            $queryGetStar = "SELECT * FROM avaliacos WHERE  iduser = $idFoto  AND servico = '$profissaoPhoto'";
+            $resultStar = mysqli_query($con,$queryGetStar) or die(mysqli_error($con));
+
+    
+    
+            while ($registroStar = mysqli_fetch_array($resultStar))
+ {
+                    $qntEstrela = $registroStar['qnt_estrela'];
+                     if ($qntEstrela === " ") {
+                            $qntEstrela = 0;
+                     }
+                    $check0 ="disabled";
+                    $check1 ="disabled";
+                    $check2 ="disabled";
+                    $check3 ="disabled";
+                    $check4 ="disabled";
+                    $check5 ="disabled";
+ 
+                       
+                            switch ($qntEstrela) {
+                                case 0:
+                                         $check0 = "checked";
+                                        break;
+                                case 1:
+                                        $check1 = "checked";
+                                        break;
+                                case 2:
+                                        $check2 = "checked";
+                                        break;
+                                case 3:
+                                        $check3 = "checked";
+                                        break;
+                                case 4:
+                                        $check4 = "checked";
+                                        break;
+                                case 5:
+                                        $check5 = "checked";
+                                        break;
+                            }
+                            
+                        }
+
             ?>
-	
             
                 <article class="teacher-item">
                     <header>
                         <img src="uploads/<?php echo $prestador->foto; ?>" alt="<?php echo $prestador->nome; ?>">
                         <div>
                             <strong><?php echo $prestador->servico; ?><br>
+                           
+
                             
-                                <a href="javascript:void(0)" class="starlink" onclick="Avaliar'<?php echo $star; ?>'(1)">
-                                    <img src="assets/img/star0.png" class="star" id="'<?php echo $star; ?>'s1">
-                                </a>
-
-                                <a href="javascript:void(0)" class="starlink" onclick="Avaliar'<?php echo $star; ?>'(2)">
-                                    <img src="assets/img/star0.png" class="star"  id="'<?php echo $star; ?>'s2">
-                                </a>
-
-                                <a href="javascript:void(0)"  class="starlink" onclick="Avaliar'<?php echo $star; ?>'(3)">
-                                    <img src="assets/img/star0.png" class="star" id="'<?php echo $star; ?>'s3">
-                                </a>
-
-                                <a href="javascript:void(0)" class="starlink" onclick="Avaliar'<?php echo $star; ?>'(4)">
-                                    <img src="assets/img/star0.png" class="star" id="'<?php echo $star; ?>'s4">
-                                </a>
-
-                                <a href="javascript:void(0)" class="starlink" onclick="Avaliar'<?php echo $star; ?>'(5)">
-                                    <img src="assets/img/star0.png"class="star"  id="'<?php echo $star; ?>'s5">
-                                </a>
-                                <p id="rating'<?php echo $star; ?>'">0</p>
+                            <div class="estrelas">
+                                <input type="radio" id="vazio_<?php echo $star ?>" name="estrela_<?php echo $star ?>" value="" <?php echo $check0 ?>>
+                                
+                                <label for="estrela_um_<?php echo $star ?>"><i class="fa"></i></label>
+                                <input type="radio" id="estrela_um_<?php echo $star ?>" name="estrela_<?php echo $star ?>" value="1" <?php echo $check1 ?>>
+                                
+                                <label for="estrela_dois_<?php echo $star ?>"><i class="fa"></i></label>
+                                <input type="radio" id="estrela_dois_<?php echo $star ?>" name="estrela_<?php echo $star ?>" value="2" <?php echo $check2 ?>>
+                                
+                                <label for="estrela_tres_<?php echo $star ?>"><i class="fa"></i></label>
+                                <input type="radio" id="estrela_tres_<?php echo $star ?>" name="estrela_<?php echo $star ?>" value="3" <?php echo $check3 ?>>
+                                
+                                <label for="estrela_quatro_<?php echo $star ?>"><i class="fa"></i></label>
+                                <input type="radio" id="estrela_quatro_<?php echo $star ?>" name="estrela_<?php echo $star ?>" value="4" <?php echo $check4 ?>>
+                                
+                                <label for="estrela_cinco_<?php echo $star ?>"><i class="fa"></i></label>
+                                <input type="radio" id="estrela_cinco_<?php echo $star ?>" name="estrela_<?php echo $star ?>" value="5" <?php echo $check5 ?>><br><br>
+                                
+                                
+                                
+                            </div>
                             
                                 </strong> 
                         </div>
@@ -260,8 +312,7 @@ if ($a == "buscar") {
                         
                         <?php
                             // fetch Images
-                            $idFoto = $prestador->idfoto;  
-                            $profissaoPhoto = $prestador->servico;  
+                           
                             
                             $i = 1;
                             include "config.php";
@@ -275,20 +326,21 @@ if ($a == "buscar") {
                                     </a>
                                     
                                     <div class="modal fade" id="exampleModal<?php echo $i?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                <img class="releaseModal" src="<?php echo 'uploads/'.$row->imgName;?>"/>
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                    <img class="releaseModal" src="<?php echo 'uploads/'.$row->imgName;?>"/>
 
 
-                                </div>
-                            </div>
-                            </div>
-                        </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
 
 
                                 <?php $i++;
+                                    $star++;
                             }
                             }
                         ?>
@@ -305,9 +357,29 @@ if ($a == "buscar") {
                         </div>
                     <br>
                         <div class="row d-flex justify-content-center">
-                            <a target="_blank" href="#">
+                            <a  href="#" type="button"  data-toggle="modal" data-target="#exampleModal<?php echo $prestador->id;?>">
                                 Contratar esse serviço
                             </a>
+                        </div>
+
+                        <div class="modal fade2" id="exampleModal<?php echo $prestador->id;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                        <div class="modal-body">
+                                            <strong><?php echo $prestador->nome; ?><br>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                </div>
+                            </div>
                         </div>
                        
                     </footer>

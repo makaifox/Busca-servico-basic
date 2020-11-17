@@ -78,6 +78,10 @@ $nome = $_SESSION["nome"];
                         <label for="cost">Custo da diária / hora</label>
                         <input type="text" id="cost"  name="cost" required >
                     </div>
+                    <div class="input-block">
+                        <label for="tel">Whatsapp</label>
+                        <input type="number" id="tel"  name="whatsapp" required >
+                    </div>
                     <label class="registro">Possui registro ?
                         <div class="radio">
                             <label>sim &nbsp;
@@ -131,28 +135,58 @@ $nome = $_SESSION["nome"];
                 <section  id="schedulePaySession">
                     <div class="select-block">
                         <label for="pagamento">Meio de pagamento</label>
-                        <select id="pagamento" name="pagamento">
+                        <select id="pagamento" name="pagamento" onchange="exibir_ocultar()">
                             <option value="" disabled="" hidden="">Selecione uma opção</option>
                             <option value="Paypal">Paypal</option>
                             <option value="PagSeguro">PagSeguro</option>
                             <option value="Picpay">Picpay</option>
                             <option value="Mercado Pago">Mercado Pago</option>
+                            <option value="Depósito Bancário" >Depósito bancário</option>
                         ></select>
                     </div>
                         
-                    <div class="input-block">
+                    <div class="input-block" id="idbank" >
                         <label for="id">Nome / ID de usuário do serviço</label>
                         <input type="text" id="idUser" name="idUser">
                     </div>
+                <div class="schedule-item" id="schedule-bank" style=" display:none;" >
+                    <section class="select-block" id="schedule-bank-item">
+                        <label for="bank">Banco</label>
+                        <select id="bank" name="banco">
+                            <option value="" disabled="" hidden="">Selecione uma opção</option>
+                            <option value="001 – Banco do Brasil S.A.">001 – Banco do Brasil S.A.</option>
+                            <option value="033 – Banco Santander (Brasil) S.A.">033 – Banco Santander (Brasil) S.A.</option>
+                            <option value="104 – Caixa Econômica Federal">104 – Caixa Econômica Federal</option>
+                            <option value="237 – Banco Bradesco S.A.">237 – Banco Bradesco S.A.</option>
+                            <option value="341 – Banco Itaú S.A.">341 – Banco Itaú S.A.</option>
+                            <option value="389 – Banco Mercantil do Brasil S.A.">389 – Banco Mercantil do Brasil S.A.</option>
+                            <option value="260 – NU bank Pagamentos S.A.">260 – NU bank Pagamentos S.A.</option>
+                            <option value="399 – HSBC Bank Brasil S.A.">399 – HSBC Bank Brasil S.A.</option>
+
+                        </select>
+                    </section>
+                    <div class="input-block">
+                        <label for="ag">Agência</label>
+                        <input type="number" id="ag" name="ag">
+                    </div>
+                    <div class="input-block">
+                        <label for="cc">Conta Corrente</label>
+                        <input type="number" id="cc" name="cc">
+                    </div>
+                </div>
+                    
                 </section>
             </div>
 
 
                 </div>
                 <div class="fieldset">
-                    <legend>Fotos do serviço
-                    <input type="file" id="upload_file" name="upload_file[]" class="uploadfotos uploadfotosServico" onchange="preview_image();" multiple required>
+                <legend>
+
+                            Fotos do serviço <br>
                     </legend>
+                    <input type="file" id="upload_file" name="upload_file[]" class="uploadfotos uploadfotosServico" onchange="preview_image();" multiple required>
+
 
                     <div id="img-div">
                             <div id="img-container" class="col">
@@ -185,6 +219,25 @@ $nome = $_SESSION["nome"];
             
 
             <script>
+
+
+
+//exibe opções de banco 
+
+    function exibir_ocultar() {
+    var valor = document.getElementById("pagamento").value;
+
+    if(valor == 'Depósito Bancário'){
+         $("#schedule-bank").show();
+         $("#idbank").hide();
+     } else {
+        $("#schedule-bank").hide();
+         $("#idbank").show();
+     }
+};
+
+
+//preview das imagens
 
 function preview_image() 
 {

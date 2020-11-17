@@ -1,3 +1,4 @@
+@charset "UTF-8";
 :root {
   font-size: 60%;
 }
@@ -272,17 +273,17 @@ body {
   border-radius: 3rem;
 }
 
-.star {
-  width: 2rem !important;
-  height: 2rem !important;
-}
-
-.starlink:hover {
-  text-decoration: none;
-}
-
-#rating {
+.estrelas input[type=radio] {
   display: none;
+}
+
+.estrelas label i.fa:before {
+  content: "";
+  color: #FC0;
+}
+
+.estrelas input[type=radio]:checked ~ label i.fa:before {
+  color: #CCC;
 }
 
 * {
@@ -2095,10 +2096,6 @@ body, input, button, textarea {
 
   .uploadfotosServico {
     width: 100%;
-  }
-
-  .uploadfotosServico::before {
-    max-width: 15rem;
   }
 
   .uploadfotos-edit::before {

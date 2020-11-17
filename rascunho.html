@@ -1,0 +1,45 @@
+<div class="schedule-pay" id="schedule-pay">
+    <section id="schedulePaySession'+$schedulePay+'">
+        <div class="select-block">
+            <label for="pagamento">Meio de pagamento</label>
+            <select id="pagamento" name="pagamento'+$schedulePay+'">
+                <option value="" disabled="" hidden="">Selecione uma opção</option>
+                <option value="Paypal">Paypal</option>
+                <option value="PagSeguro">PagSeguro</option>
+                <option value="Picpay">Picpay</option>
+                <option value="Mercado Pago">Mercado Pago</option>
+            </select>
+        </div>
+        <div class="input-block">
+            <label for="id">Nome / ID de usuário do serviço</label>
+            <input type="text" id="idUser" name="idUser'+$schedulePay+'">
+        </div>
+        <div class="schedule-item" id="schedule-bank'+$schedulePay+" style=" display:none;" >
+            <section class="select-block" id="schedule-bank-item">
+                <label for="bank">Banco</label>
+                <select id="bank" name="banco'+$schedulePay+">
+                    <option value="" disabled="" hidden="">Selecione uma opção</option>
+                    <option value="001 – Banco do Brasil S.A.">001 – Banco do Brasil S.A.</option>
+                    <option value="033 – Banco Santander (Brasil) S.A.">033 – Banco Santander (Brasil) S.A.</option>
+                    <option value="104 – Caixa Econômica Federal">104 – Caixa Econômica Federal</option>
+                    <option value="237 – Banco Bradesco S.A.">237 – Banco Bradesco S.A.</option>
+                    <option value="341 – Banco Itaú S.A.">341 – Banco Itaú S.A.</option>
+                    <option value="389 – Banco Mercantil do Brasil S.A.">389 – Banco Mercantil do Brasil S.A.</option>
+                    <option value="260 – NU bank Pagamentos S.A.">260 – NU bank Pagamentos S.A.</option>
+                    <option value="399 – HSBC Bank Brasil S.A.">399 – HSBC Bank Brasil S.A.</option>
+
+                </select>
+            </section>
+            <div class="input-block">
+                <label for="ag">Agência</label>
+                <input type="number" id="ag" name="ag'+$schedulePay+">
+            </div>
+            <div class="input-block">
+                <label for="cc">Conta Corrente</label>
+                <input type="number" id="cc" name="cc'+$schedulePay+">
+            </div>
+        </div>
+            
+    </section>
+</div>
+
