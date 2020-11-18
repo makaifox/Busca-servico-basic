@@ -2,11 +2,12 @@
     include('config.php');
     session_start();
 
-    $idUser = $_SESSION["id"];
-
+    $idUserSession = $_SESSION["id"];
+    
     $servico = $_POST['servico'];
     $cost = $_POST['cost'];
     $tel = $_POST['whatsapp'];
+    $bio = $_POST['bio'];
     $registro = $_POST['registrosim'] = ( isset($_POST['registrosim']) )  ? $_POST['registrosim'] : null;
     $week_day = $_POST['week_day'] ;
     $week_day1 = $_POST['week_day1'] = ( isset($_POST['week_day1']) )  ? $_POST['week_day1'] : null; 
@@ -75,17 +76,17 @@
 
 
 
-        $query = "INSERT INTO Images(servico,imgName,idfoto) VALUES ($servico','$imageName','$idUser')";
-        $insert = mysqli_query($con,$query);
+        $queryImg = "INSERT INTO Images(id,servico,imgName) VALUES ('$idUserSession','$servico','$imageName')";
+        $insertFoto = mysqli_query($con,$queryImg);
     }
  
 
-    $query = "INSERT INTO servicos(nome,sobrenome,email,cpfcnpj,cep,servico,cost,tel,registro,week_day,week_day1,week_day2,week_day3,week_day4,week_day5,week_day6,fromof,fromof1,fromof2,fromof3,fromof4,fromof5,fromof6,toof,toof1,toof2,toof3,toof4,toof5,toof6,pagamento,pagamento1,pagamento2,pagamento3,pagamento4,pagamento5,idUser,idUser1,idUser2,idUser3,idUser4,idUser5,banco,banco1,banco2,banco3,banco4,banco5,ag,ag1,ag2,ag3,ag4,ag5,cc,cc1,cc2,cc3,cc4,cc5) 
+    $query = "INSERT INTO servicos(nome,sobrenome,email,cpfcnpj,cep,servico,cost,tel,bio, registro,week_day,week_day1,week_day2,week_day3,week_day4,week_day5,week_day6,fromof,fromof1,fromof2,fromof3,fromof4,fromof5,fromof6,toof,toof1,toof2,toof3,toof4,toof5,toof6,pagamento,pagamento1,pagamento2,pagamento3,pagamento4,pagamento5,idUser,idUser1,idUser2,idUser3,idUser4,idUser5,banco,banco1,banco2,banco3,banco4,banco5,ag,ag1,ag2,ag3,ag4,ag5,cc,cc1,cc2,cc3,cc4,cc5,idfoto) 
     VALUES
-    ('$nome','$sobrenome','$email','$cpfcnpj','$cep','$servico','$cost','$tel','$registro','$week_day','$week_day1','$week_day2','$week_day3','$week_day4','$week_day5','$week_day6','$from','$from1','$from2','$from3','$from4','$from5','$from6','$to','$to1','$to2','$to3','$to4','$to5','$to6','$pagamento','$pagamento1','$pagamento2','$pagamento3','$pagamento4','$pagamento5','$idUser','$idUser1','$idUser2','$idUser3','$idUser4','$idUser5','$banco','$banco1','$banco2','$banco3','$banco4','$banco5','$ag','$ag1','$ag2','$ag3','$ag4','$ag5','$cc','$cc1','$cc2','$cc3','$cc4','$cc5')";
+    ('$nome','$sobrenome','$email','$cpfcnpj','$cep','$servico','$cost','$tel','$bio','$registro','$week_day','$week_day1','$week_day2','$week_day3','$week_day4','$week_day5','$week_day6','$from','$from1','$from2','$from3','$from4','$from5','$from6','$to','$to1','$to2','$to3','$to4','$to5','$to6','$pagamento','$pagamento1','$pagamento2','$pagamento3','$pagamento4','$pagamento5','$idUser','$idUser1','$idUser2','$idUser3','$idUser4','$idUser5','$banco','$banco1','$banco2','$banco3','$banco4','$banco5','$ag','$ag1','$ag2','$ag3','$ag4','$ag5','$cc','$cc1','$cc2','$cc3','$cc4','$cc5','$idUserSession')";
       $insert = mysqli_query($con,$query);
 
-      if($insert){
+      if($insert && $insertFoto){
         echo"<script language='javascript' type='text/javascript'>
         alert('serviço cadastrado com sucesso!');window.location.
         href='home.php'</script>";
@@ -94,6 +95,6 @@
         alert('Não foi possível cadastrar seu serviço');window.location.
         href='oferecer.php'</script>";
       }
-    
+
 
 ?>

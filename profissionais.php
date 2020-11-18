@@ -188,6 +188,10 @@ if ($a == "buscar") {
                                 </strong> 
                         </div>
                     </header>
+                    
+                    <div class="col d-flex justify-content-center">
+                                <p class="text-center"><?php  echo $prestador->bio; ?> </strong></p>
+                            </div>
                     <p>Disponibilidade</p>
                     <div class="row row-cards d-flex justify-content-center">
                     
@@ -321,21 +325,9 @@ if ($a == "buscar") {
 
                             if ($resultImg->num_rows > 0 ){
                             while ($row = $resultImg->fetch_object()){ ?>
-                                     <a href="#" type="button" class="" data-toggle="modal" data-target="#exampleModal<?php echo $i?>">
+                                     <a href='<?php echo "uploads/".$row->imgName;?>' type="button" class="" target="_blank" >
                                         <img class="releases" src="<?php echo 'uploads/'.$row->imgName;?>"/>
                                     </a>
-                                    
-                                    <div class="modal fade" id="exampleModal<?php echo $i?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                    <img class="releaseModal" src="<?php echo 'uploads/'.$row->imgName;?>"/>
-
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
 
 
 
@@ -343,6 +335,8 @@ if ($a == "buscar") {
                                     $star++;
                             }
                             }
+                            
+                            mysqli_free_result($resultImg);
                         ?>
                         
                     </div>
@@ -566,6 +560,10 @@ if ($a == "buscar") {
             echo "Nenhum serviço de ".$servico." foi encontrado no momento ";
         }
     }
+    
+
+
+
     ?>
             </main>
         </div>
@@ -576,9 +574,6 @@ if ($a == "buscar") {
 </body>
 </html>
 
-<?php
-// tira o resultado da busca da memória
-mysqli_free_result($dados);
-?>
+
 
 

@@ -38,7 +38,9 @@ require './config.php';
         $_SESSION["sobrenome"]  = $bd["sobrenome"];
         $_SESSION["email"]  = $bd["email"];
         $_SESSION["cpfcnpj"]  = $bd["cpfcnpj"];
+        $_SESSION["profissao"]  = $bd["profissao"];
         $_SESSION["cep"]  = $bd["cep"];
+        $_SESSION["tel"]  = $bd["tel"];
 
         
         

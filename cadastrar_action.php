@@ -27,7 +27,7 @@ $pasta = "uploads/";
                 $cpfcnpj= $cpf;
             }
 
-            echo $cpfcnpj;
+            
 
     /* formatos de imagem permitidos */
     $permitidos = array(".jpg",".jpeg",".gif",".png", ".bmp");

@@ -11,6 +11,7 @@
     $sobrenome = $_POST['sobrenome']  = ( isset($_POST['sobrenome']) )  ? $_POST['sobrenome'] : null;
     $email = $_POST['email']  = ( isset($_POST['email']) )  ? $_POST['email'] : null;
     $cpfcnpj = $_POST['cpfcnpj']  = ( isset($_POST['cpfcnpj']) )  ? $_POST['cpfcnpj'] : null; 
+    $profissao = $_POST['profissao']  = ( isset($_POST['profissao']) )  ? $_POST['profissao'] : null; 
     $cep = $_POST['cep']  = ( isset($_POST['cep']) )  ? $_POST['cep'] : null;
     $tel = $_POST['tel']  = ( isset($_POST['tel']) )  ? $_POST['tel'] : null;
 
@@ -20,19 +21,8 @@
     
     require './config.php';
 
-    if($nome == "" || $sobrenome == "" || $email == "" || $cpfcnpj == "" || $cep == "" || $tel == "") {
-      echo "<script> alert('Por favor, preencha todos os campos!');window.location
-      .href='edit_user.php';</script> </script>";
-      return true;
-  }
-    
+
   
-  if($cpf == "" ) {
-    $cpfcnpj= $cnpj;
-}
-else {
-    $cpfcnpj= $cpf;
-}
 
 
     
@@ -69,7 +59,7 @@ $pasta = "uploads/";
                  
 
 
-                  $query = "UPDATE usuarios WHERE id =$id SET foto='$nome_atual', nome= '$nome',sobrenome= '$sobrenome', email= '$email',cpfcnpj= '$cpfcnpj',cep = '$cep' ,tel = $tel";
+                  $query = "UPDATE usuarios WHERE id =$id SET foto='$nome_atual', nome= '$nome',sobrenome= '$sobrenome',profissao= '$profissao', email= '$email',cpfcnpj= '$cpfcnpj',cep = '$cep' ,tel = '$tel'";
                   $insert = mysqli_query($con,$query);
 
                   
@@ -108,14 +98,14 @@ $pasta = "uploads/";
 else {
         
 
-    $alter =  mysqli_query ( $con, "UPDATE usuarios SET nome= '$nome',sobrenome= '$sobrenome', email= '$email',cpfcnpj= '$cpfcnpj',cep = '$cep' ,tel = $tel WHERE id=$id " );
+    $alter =  mysqli_query ( $con, "UPDATE usuarios SET nome= '$nome',sobrenome= '$sobrenome', email= '$email',cpfcnpj= '$cpfcnpj',profissao= '$profissao', cep = '$cep' ,tel = '$tel' WHERE id='$id' " );
 
-     echo $alter;
+     
   
       if($alter){
         echo"<script language='javascript' type='text/javascript'>
-        alert('Cadastro alterado com sucesso!!');window.location
-        .href='home.php';</script>";
+        alert('Cadastro alterado com sucesso! faça login novamente');window.location
+        .href='index.php';</script>";
       }else{
         echo"<script language='javascript' type='text/javascript'>
         alert('Houve um erro, tente novamente mais tarde');window.location

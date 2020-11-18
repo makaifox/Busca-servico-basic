@@ -14,8 +14,10 @@ $foto = $_SESSION["foto"];
 $nome = $_SESSION["nome"];
 $sobrenome = $_SESSION["sobrenome"];
 $email = $_SESSION["email"];
+$profissao = $_SESSION["profissao"];
 $cpfcnpj = $_SESSION["cpfcnpj"];
 $cep = $_SESSION["cep"];
+$tel = $_SESSION["tel"];
 
 
 
@@ -74,7 +76,7 @@ $cep = $_SESSION["cep"];
                         </div>
                         <div class="input-block">
                             <label class="registro">Profissão</label>
-                            <input type="text" id="name" value="<?php echo $cpfcnpj ?>" name="profissao" >
+                            <input type="text" id="name" value="<?php echo $profissao ?>" name="profissao" >
 
                         </div>
                     
@@ -101,13 +103,13 @@ $cep = $_SESSION["cep"];
 
                                         </select>
 
-                                        <input type="text" id="cpf" placeholder="CPF" name="cpf" value="<?php echo $cpfcnpj ?>" style="max-width: 15rem; ;" >
-                                    <input type="text" id="cnpj" placeholder="CNPJ" name="cnpj" value="<?php echo $cpfcnpj ?>" style="max-width: 15rem; display:none;" >
+                                        <input type="text" id="cpf" placeholder="CPF" name="cpfcnpj" value="<?php echo $cpfcnpj ?>" style="max-width: 15rem; ;" >
+                                    <input type="text" id="cnpj" placeholder="CNPJ" name="cpfcnpj" value="<?php echo $cpfcnpj ?>" style="max-width: 15rem; display:none;" >
 
                                 </div>
                                 <div class="col">
                                     <label class="registro">cep</label>
-                                    <input type="number" id="name" value="<?php echo $cep ?>" name="cep" >
+                                    <input type="text" id="name" value="<?php echo $cep ?>" name="cep" >
                                 </div>
                             </div>
                         </div>

@@ -1,5 +1,7 @@
 <?php
 
+
+
 session_start();
 if((!isset ($_SESSION['usuario']) == true) and (!isset ($_SESSION['senha']) == true))
 {
@@ -11,6 +13,7 @@ if((!isset ($_SESSION['usuario']) == true) and (!isset ($_SESSION['senha']) == t
 $logado = $_SESSION['usuario'];
 $nome = $_SESSION["nome"];
 $foto = $_SESSION["foto"];
+$id = $_SESSION["id"];
 
 
 ?>
@@ -38,11 +41,11 @@ $foto = $_SESSION["foto"];
                             <div class="dropdown">
                                 <a class="login" href="#" id="dropdownlogin" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <img src="uploads/<?php echo $foto ?>" class="user-pic" alt="foto">
-                                    <p class="dropdown-toggle">Olá, <?php echo $nome ?> </p>
+                                    <p class="dropdown-toggle">Olá, <?php echo $nome ?></p>
                                 <div class="dropdown-menu" aria-labelledby="dropdownlogin">
                                     <a class="dropdown-item" href="/edit_user.php">Editar Perfil</a>
-                                    <!-- <a class="dropdown-item" href="#">Editar meus serviços</a>
-                                    <a class="dropdown-item" href="#">Serviços ativos</a> -->
+                                    <a class="dropdown-item" href="/meusServicos.php">Editar meus serviços</a>
+                                    <!-- <a class="dropdown-item" href="#">Serviços ativos</a> -->
                                 </div>
                                 </div>
 

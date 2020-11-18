@@ -37,10 +37,10 @@
                         <input type="password" id="E-mail" placeholder="Senha" class="password" name="senha">
                     </div>
                     <div id="footer-form">
-                        <a class="text-footer-form" href="#">
+                        <!--<a class="text-footer-form" href="#">
                             <input type="checkbox" class="check">&nbsp;&nbsp;lembrar-me
                         </a>
-                        <a class="text-footer-form" href="/esqueci.php">esqueci a senha</a>
+                         <a class="text-footer-form" href="/esqueci.php">esqueci a senha</a> -->
                     </div>
                     
                         <button class="enviar" type="submit" value="Login" name="entrar" >Entrar</button>

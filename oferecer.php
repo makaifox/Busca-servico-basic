@@ -10,6 +10,7 @@ if((!isset ($_SESSION['usuario']) == true) and (!isset ($_SESSION['senha']) == t
 
 $logado = $_SESSION['usuario'];
 $nome = $_SESSION["nome"];
+$idUser = $_SESSION["id"];
 
 
 ?>
@@ -24,6 +25,7 @@ $nome = $_SESSION["nome"];
     <link rel="stylesheet" type="text/css" href="//use.fontawesome.com/releases/v5.7.2/css/all.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <script src="https://cdn.rawgit.com/plentz/jquery-maskmoney/master/dist/jquery.maskMoney.min.js"></script>
     <script src="assets/js/jquery.form.js" type="text/javascript"></script>
 
     <title>Just Virtua</title>
@@ -82,6 +84,10 @@ $nome = $_SESSION["nome"];
                     <div class="input-block">
                         <label for="whatsapp">Whatsapp</label>
                         <input type="text" id="whatsapp"  name="whatsapp" required >
+                    </div>
+                    <div class="input-block">
+                        <label for="bio">Conte um pouco sobre você</label>
+                        <textarea type="text" id="bio" class="biotextarea"  name="bio" rows="5" cols="33" required ></textarea>
                     </div>
                     <label class="registro">Possui registro ?
                         <div class="radio">
@@ -282,6 +288,8 @@ function add_row_schedule_pay()
 
 $(document).ready(function(){
         $('#whatsapp').mask('(00)00000-0000');
+        $('#cost').maskMoney();
+        
        
 });
 
