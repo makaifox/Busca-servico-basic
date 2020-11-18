@@ -22,7 +22,8 @@ $nome = $_SESSION["nome"];
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="//use.fontawesome.com/releases/v5.7.2/css/all.css">
-    <script src="assets/js/jquery.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script src="assets/js/jquery.form.js" type="text/javascript"></script>
 
     <title>Just Virtua</title>
@@ -79,8 +80,8 @@ $nome = $_SESSION["nome"];
                         <input type="text" id="cost"  name="cost" required >
                     </div>
                     <div class="input-block">
-                        <label for="tel">Whatsapp</label>
-                        <input type="number" id="tel"  name="whatsapp" required >
+                        <label for="whatsapp">Whatsapp</label>
+                        <input type="text" id="whatsapp"  name="whatsapp" required >
                     </div>
                     <label class="registro">Possui registro ?
                         <div class="radio">
@@ -277,8 +278,12 @@ function add_row_schedule_pay()
  $("#schedule-pay:last").after(' <div class="schedule-pay" id="schedule-pay"><section id="schedulePaySession'+$schedulePay+'"><div class="select-block"><label for="pagamento">Meio de pagamento</label><select id="pagamento" name="pagamento'+$schedulePay+'"><option value="" disabled="" hidden="">Selecione uma opção</option><option value="Paypal">Paypal</option><option value="PagSeguro">PagSeguro</option><option value="Picpay">Picpay</option><option value="Mercado Pago">Mercado Pago</option></select></div><div class="input-block"><label for="id">Nome / ID de usuário do serviço</label><input type="text" id="idUser" name="idUser'+$schedulePay+'"></div></section></div>');
  
 
-
 }
+
+$(document).ready(function(){
+        $('#whatsapp').mask('(00)00000-0000');
+       
+});
 
 </script>
 

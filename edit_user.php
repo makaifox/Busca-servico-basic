@@ -30,7 +30,8 @@ $cep = $_SESSION["cep"];
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="//use.fontawesome.com/releases/v5.7.2/css/all.css">
-    <script src="assets/js/jquery.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script src="assets/js/jquery.form.js" type="text/javascript"></script>
 
     <title>Just Virtua</title>
@@ -63,17 +64,17 @@ $cep = $_SESSION["cep"];
                             <div class="row">
                                 <div class="col">    
                                     <label class="registro">Nome</label>
-                                    <input type="text" id="name" placeholder="<?php echo $nome ?>" name="nome" >
+                                    <input type="text" id="name" value="<?php echo $nome ?>" name="nome" >
                                 </div>
                                 <div class="col">
                                     <label class="registro">Sobrenome</label>
-                                    <input type="text" id="name" placeholder="<?php echo $sobrenome ?>" name="sobrenome" >
+                                    <input type="text" id="name" value="<?php echo $sobrenome ?>" name="sobrenome" >
                                 </div>
                             </div>
                         </div>
                         <div class="input-block">
                             <label class="registro">Profissão</label>
-                            <input type="text" id="name" placeholder="<?php echo $cpfcnpj ?>" name="profissao" >
+                            <input type="text" id="name" value="<?php echo $cpfcnpj ?>" name="profissao" >
 
                         </div>
                     
@@ -81,54 +82,39 @@ $cep = $_SESSION["cep"];
                             <div class="row">
                                 <div class="col-7"> 
                                     <label class="registro">Email</label>
-                                    <input type="text" id="name" placeholder="<?php echo $email ?>" name="email" >
+                                    <input type="text" id="name" value="<?php echo $email ?>" name="email" >
                                 </div>
                                 <div class="col-5">
                                     <label class="registro">whatsapp</label>
-                                    <input type="number" id="name" placeholder="<?php echo $email ?>" name="whatsapp" >
+                                    <input type="text" id="whatsapp" value="<?php echo $tel ?>" name="tel" >
                                 </div>
                             </div>
                         </div>
                         <div class="input-block">
                             <div class="row">
                                 <div class="col"> 
-                                    <label class="registro">cpf ou cnpj</label>
-                                    <input type="number" id="name" placeholder="<?php echo $cpfcnpj ?>" name="cnpj" >
+                                <label class="registro">CPF / CNPJ</label>
+                                        <select id="cpfcnpjOption" class="option-cpf" onchange="exibir_ocultar()" style="max-width: 2rem; ;">
+                                                <option value="" disabled="" hidden="">Selecione uma opção</option>
+                                                <option value="CPF">CPF</option>
+                                                <option value="CNPJ">CNPJ</option>
+
+                                        </select>
+
+                                        <input type="text" id="cpf" placeholder="CPF" name="cpf" value="<?php echo $cpfcnpj ?>" style="max-width: 15rem; ;" >
+                                    <input type="text" id="cnpj" placeholder="CNPJ" name="cnpj" value="<?php echo $cpfcnpj ?>" style="max-width: 15rem; display:none;" >
+
                                 </div>
                                 <div class="col">
                                     <label class="registro">cep</label>
-                                    <input type="number" id="name" placeholder="<?php echo $cep ?>" name="cep" >
+                                    <input type="number" id="name" value="<?php echo $cep ?>" name="cep" >
                                 </div>
                             </div>
                         </div>
-                        <div class="input-block">
-                            <label class="registro">Conta bancária</label>
-                            <input type="text" id="name" placeholder="<?php echo $nome ?>" name="" >
-                        </div>
-                        </div>
-                        <div class="fieldset">
-                            <legend>Meios de pagamento
-                                <button type="button"  onclick="add_row_schedule_pay();">+ Adicionar outro</button>
-                            </legend>
-                                <div class="schedule-pay" id="schedule-pay">
-                                    <section  id="schedulePaySession">
-                                        <div class="select-block">
-                                            <label for="pagamento">Meio de pagamento</label>
-                                            <select id="pagamento" name="pagamento">
-                                                <option value="" disabled="" hidden="">Selecione uma opção</option>
-                                                <option value="Paypal">Paypal</option>
-                                                <option value="PagSeguro">PagSeguro</option>
-                                                <option value="Picpay">Picpay</option>
-                                                <option value="Mercado Pago">Mercado Pago</option>
-                                            ></select>
-                                        </div>
-                                            
-                                        <div class="input-block">
-                                            <label for="id">Nome / ID de usuário do serviço</label>
-                                            <input type="text" id="idUser" name="idUser">
-                                        </div>
-                                    </section>
-                                </div>
+                        
+                        
+                        
+                                
 
                 </div>
                 <footer>
@@ -197,6 +183,29 @@ function add_row_schedule_pay()
 
 
 
+      $(document).ready(function(){
+        $('#whatsapp').mask('(00)00000-0000');
+        $('#cep').mask('00000-000');
+        $('#cpf').mask('000.000.000-00');
+        $('#cnpj').mask('00.000.000/0000-00');
+
+      });
+
+
+      function exibir_ocultar() {
+      var valor = document.getElementById("cpfcnpjOption").value;
+
+
+    if(valor == 'CPF'){
+         $("#cpf").show();
+         $("#cnpj").hide();
+
+     } else {
+        $("#cpf").hide();
+         $("#cnpj").show();
+
+     }
+};
 </script>
 
 </body>

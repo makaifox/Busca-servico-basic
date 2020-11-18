@@ -4,8 +4,10 @@
     $nome = $_POST['nome'];
     $sobrenome = $_POST['sobrenome'];
     $email = $_POST['email'];
+    $tel = $_POST['tel'];
     $profissao = $_POST['profissao'];
-    $cpfcnpj = $_POST['cpfcnpj'] ;
+    $cpf = $_POST['cpf'] ;
+    $cnpj = $_POST['cnpj'] ;
     $cep = $_POST['cep'] ;
     $usuario = $_POST['usuario'];
     $senha =MD5 ($_POST['senha']) ;
@@ -16,6 +18,16 @@
     
 
 $pasta = "uploads/";
+
+
+            if($cpf == "" ) {
+                $cpfcnpj= $cnpj;
+            }
+            else {
+                $cpfcnpj= $cpf;
+            }
+
+            echo $cpfcnpj;
 
     /* formatos de imagem permitidos */
     $permitidos = array(".jpg",".jpeg",".gif",".png", ".bmp");
@@ -46,11 +58,11 @@ $pasta = "uploads/";
                   
 
 
-                  $query = "INSERT INTO usuarios(foto,nome,sobrenome,email,profissao,cpfcnpj,cep,usuario,senha) VALUES(
-                    '$nome_atual','$nome','$sobrenome','$email','$profissao','$cpfcnpj','$cep','$usuario','$senha')";
+                  $query = "INSERT INTO usuarios(foto,nome,sobrenome,email,tel,profissao,cpfcnpj,cep,usuario,senha) VALUES(
+                    '$nome_atual','$nome','$sobrenome','$email','$tel','$profissao','$cpfcnpj','$cep','$usuario','$senha')";
                   $insert = mysqli_query($con,$query);
 
-                  echo $query;
+                  
               
                   if($insert){
                     echo"<script language='javascript' type='text/javascript'>

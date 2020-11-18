@@ -286,6 +286,34 @@ body {
   color: #CCC;
 }
 
+#modal-finalizar {
+  padding: 3rem !important;
+  border-radius: 2rem !important;
+}
+
+.goback {
+  background-color: #916BEA !important;
+}
+
+.img-finalizar {
+  width: 5rem;
+  border-radius: 20rem;
+  background-color: #9C98A6;
+  height: 5rem;
+}
+
+.img-finalizar-box {
+  max-width: 6rem !important;
+}
+
+.option-cpf {
+  height: 4rem !important;
+  border-radius: 0.8rem !important;
+  background: #F8F8FC !important;
+  border: 1px solid #E6E6F0 !important;
+  width: 9rem;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -2044,7 +2072,7 @@ body, input, button, textarea {
   }
 
   #page-cadastro .input-block input, .enviar {
-    height: 4.6rem;
+    height: 4rem;
     width: 40rem;
   }
 

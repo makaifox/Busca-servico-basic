@@ -41,8 +41,8 @@ $foto = $_SESSION["foto"];
                                     <p class="dropdown-toggle">Olá, <?php echo $nome ?> </p>
                                 <div class="dropdown-menu" aria-labelledby="dropdownlogin">
                                     <a class="dropdown-item" href="/edit_user.php">Editar Perfil</a>
-                                    <a class="dropdown-item" href="#">Editar meus serviços</a>
-                                    <a class="dropdown-item" href="#">Serviços ativos</a>
+                                    <!-- <a class="dropdown-item" href="#">Editar meus serviços</a>
+                                    <a class="dropdown-item" href="#">Serviços ativos</a> -->
                                 </div>
                                 </div>
 

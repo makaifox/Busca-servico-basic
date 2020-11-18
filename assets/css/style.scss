@@ -335,9 +335,35 @@ body {
         color: #CCC;
     }
 
+    #modal-finalizar {
+    padding: 3rem !important;
+    border-radius: 2rem !important;
+}
 
-    
+.goback{
+    background-color: $color-primary-light !important;
+}
 
+.img-finalizar{
+    width: 5rem;
+    border-radius: 20rem;
+    background-color: $color-text-complement;
+    height: 5rem;
+}
+
+.img-finalizar-box{
+    max-width: 6rem !important;
+}
+
+
+.option-cpf{
+    height: 4rem !important;
+   
+    border-radius: 0.8rem !important;
+    background: #F8F8FC !important;
+    border: 1px solid #E6E6F0 !important;
+    width: 9rem;
+}
 @import 'style-proffisionais';
 @import 'styles-mobile';
 @import 'styles-mobile-min700';

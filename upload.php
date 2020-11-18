@@ -7,7 +7,7 @@
     $servico = $_POST['servico'];
     $cost = $_POST['cost'];
     $tel = $_POST['whatsapp'];
-    $registro = $_POST['registro'] = ( isset($_POST['registro']) )  ? $_POST['registro'] : null;
+    $registro = $_POST['registrosim'] = ( isset($_POST['registrosim']) )  ? $_POST['registrosim'] : null;
     $week_day = $_POST['week_day'] ;
     $week_day1 = $_POST['week_day1'] = ( isset($_POST['week_day1']) )  ? $_POST['week_day1'] : null; 
     $week_day2 = $_POST['week_day2'] = ( isset($_POST['week_day2']) )  ? $_POST['week_day2'] : null;
