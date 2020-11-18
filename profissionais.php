@@ -438,38 +438,38 @@ if ($a == "buscar") {
                                             </select>
 
                                             
-                                                    <div class="col" id="op"  style="display:none;">
+                                                    <div class="col op"  style="display:none;">
                                                          <br>
                                                         <p  class="pagamentoConta" style="display:none;" >Usuário:<strong><?php echo $prestador->idUser;?></strong></p>
                                                         <p class="deposito"style="display:none;" >Banco: <strong><?php echo $prestador->banco;?> </strong> <br> agência: <strong><?php echo $prestador->ag;?></strong> Conta:<strong><?php echo $prestador->cc;?> </strong></p>
                                                         <br>
                                                     </div>
-                                                    <div class="col" id="op1" style="display:none;">
+                                                    <div class="col op1" style="display:none;">
                                                         <br>
                                                         <p  class="pagamentoConta" style="display:none;" >Usuário:<strong><?php echo $prestador->idUser1;?></strong></p>
                                                         <p class="deposito" style="display:none;" >Banco: <strong><?php echo $prestador->banco1;?> </strong> <br> agência: <strong><?php echo $prestador->ag1;?></strong> Conta:<strong><?php echo $prestador->cc1;?> </strong></p>
                                                         <br>
                                                     </div>
-                                                    <div class="col" id="op2" style="display:none;">
+                                                    <div class="col op2" style="display:none;">
                                                     <br>
                                                         <p  class="pagamentoConta"style="display:none;"  >Usuário:<strong><?php echo $prestador->idUser2;?></strong></p>
                                                         <p class="deposito" style="display:none;" >Banco: <strong><?php echo $prestador->banco2;?> </strong> <br> agência: <strong><?php echo $prestador->ag2;?></strong> Conta:<strong><?php echo $prestador->cc2;?> </strong></p>
                                                         <br>
                                                     </div>
-                                                    <div class="col" id="op3" style="display:none;">
+                                                    <div class="col op3" style="display:none;">
                                                     <br>
                                                         <p  class="pagamentoConta" style="display:none;" >Usuário:<strong><?php echo $prestador->idUser3;?></strong></p>
                                                         <p class="deposito" style="display:none;" >Banco: <strong><?php echo $prestador->banco3;?> </strong> <br> agência: <strong><?php echo $prestador->ag3;?></strong> Conta:<strong><?php echo $prestador->cc3;?> </strong></p>
                                                         <br>
                                                     </div>
-                                                    <div class="col" id="op4" style="display:none;">
+                                                    <div class="col op4" style="display:none;">
                                                     <br>
                                                         <p  class="pagamentoConta" style="display:none;" >Usuário:<strong><?php echo $prestador->idUser4;?></strong></p>
                                                         <p class="deposito" style="display:none;" >Banco: <strong><?php echo $prestador->banco4;?> </strong> <br> agência: <strong><?php echo $prestador->ag4;?></strong> Conta:<strong><?php echo $prestador->cc4;?> </strong></p>
                                                         <br>
                                                     </div>
 
-                                                    <div class="col" id="op5" style="display:none;">
+                                                    <div class="col op5" style="display:none;">
                                                     <br>
                                                         <p  class="pagamentoConta" style="display:none;" >Usuário:<strong><?php echo $prestador->idUser5;?></strong></p>
                                                         <p class="deposito" style="display:none;" >Banco: <strong><?php echo $prestador->banco5;?> </strong> <br> agência: <strong><?php echo $prestador->ag5;?></strong> Conta:<strong><?php echo $prestador->cc5;?> </strong></p>
@@ -494,47 +494,47 @@ if ($a == "buscar") {
                                                     }
 
                                                     if(valor == '1'){
-                                                        $("#op").show();
-                                                        $("#op1").hide();
-                                                        $("#op2").hide();
-                                                        $("#op3").hide();
-                                                        $("#op4").hide();
-                                                        $("#op5").hide();
+                                                        $(".op").show();
+                                                        $(".op1").hide();
+                                                        $(".op2").hide();
+                                                        $(".op3").hide();
+                                                        $(".op4").hide();
+                                                        $(".op5").hide();
                                                     } else if(valor == '2'){
-                                                        $("#op").hide();
-                                                        $("#op1").show();
-                                                        $("#op2").hide();
-                                                        $("#op3").hide();
-                                                        $("#op4").hide();
-                                                        $("#op5").hide();
+                                                        $(".op").hide();
+                                                        $(".op1").show();
+                                                        $(".op2").hide();
+                                                        $(".op3").hide();
+                                                        $(".op4").hide();
+                                                        $(".op5").hide();
                                                     }else if(valor == '3'){
-                                                        $("#op").hide();
-                                                        $("#op1").hide();
-                                                        $("#op2").show();
-                                                        $("#op3").hide();
-                                                        $("#op4").hide();
-                                                        $("#op5").hide();
+                                                        $(".op").hide();
+                                                        $(".op1").hide();
+                                                        $(".op2").show();
+                                                        $(".op3").hide();
+                                                        $(".op4").hide();
+                                                        $(".op5").hide();
                                                     }else if(valor == '4'){
-                                                        $("#op").hide();
-                                                        $("#op1").hide();
-                                                        $("#op2").hide();
-                                                        $("#op3").show();
-                                                        $("#op4").hide();
-                                                        $("#op5").hide();
+                                                        $(".op").hide();
+                                                        $(".op1").hide();
+                                                        $(".op2").hide();
+                                                        $(".op3").show();
+                                                        $(".op4").hide();
+                                                        $(".op5").hide();
                                                     }else if(valor == '5'){
-                                                        $("#op").hide();
-                                                        $("#op1").hide();
-                                                        $("#op2").hide();
-                                                        $("#op3").hide();
-                                                        $("#op4").show();
-                                                        $("#op5").hide();
+                                                        $(".op").hide();
+                                                        $(".op1").hide();
+                                                        $(".op2").hide();
+                                                        $(".op3").hide();
+                                                        $(".op4").show();
+                                                        $(".op5").hide();
                                                     }else {
-                                                        $("#op").hide();
-                                                        $("#op1").hide();
-                                                        $("#op2").hide();
-                                                        $("#op3").hide();
-                                                        $("#op4").hide();
-                                                        $("#op5").show();
+                                                        $(".op").hide();
+                                                        $(".op1").hide();
+                                                        $(".op2").hide();
+                                                        $(".op3").hide();
+                                                        $(".op4").hide();
+                                                        $(".op5").show();
                                                     }
                                                   
 
